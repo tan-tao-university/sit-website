@@ -20,7 +20,7 @@ Examples of unacceptable behavior:
 
 ## Enforcement
 
-Instances of unacceptable behavior may be reported to **info@ttu.edu.vn**. All complaints will be reviewed and investigated promptly and fairly.
+Instances of unacceptable behavior may be reported to **sit@ttu.edu.vn**. All complaints will be reviewed and investigated promptly and fairly.
 
 ## Attribution
 

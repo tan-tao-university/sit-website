@@ -22,7 +22,7 @@
 
 **SIT Website** is the official web platform for the School of Information Technology at Tan Tao University — a Next.js public site, a Next.js admin dashboard, and a NestJS API, managed as one pnpm workspace. It covers programs, courses, majors, research, news, and student activities, fully bilingual (Vietnamese / English).
 
-[Website](https://sit.ttu.edu.vn) &middot; [Email](mailto:info@ttu.edu.vn)
+[Website](https://sit.ttu.edu.vn) &middot; [Email](mailto:sit@ttu.edu.vn)
 
 ## Stack
 
@@ -99,5 +99,5 @@ MIT — see [LICENSE](LICENSE).
 ## Contact
 
 - Website: [sit.ttu.edu.vn](https://sit.ttu.edu.vn)
-- Email: [info@ttu.edu.vn](mailto:info@ttu.edu.vn)
+- Email: [sit@ttu.edu.vn](mailto:sit@ttu.edu.vn)
 - Tan Tao University, Long An, Vietnam

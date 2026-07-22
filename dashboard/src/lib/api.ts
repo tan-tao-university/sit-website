@@ -15,7 +15,7 @@ export interface CreateProgramDto {
   content: Record<string, unknown>;
 }
 
-export interface UpdateProgramDto extends Partial<CreateProgramDto> {}
+export type UpdateProgramDto = Partial<CreateProgramDto>;
 
 export interface Program extends CreateProgramDto {
   programId: string;
@@ -44,7 +44,7 @@ export interface CreateCurriculumDto {
   degreeAwarded?: string;
 }
 
-export interface UpdateCurriculumDto extends Partial<CreateCurriculumDto> {}
+export type UpdateCurriculumDto = Partial<CreateCurriculumDto>;
 
 export interface Curriculum extends CreateCurriculumDto {
   curriculumId: string;
@@ -74,7 +74,7 @@ export interface CreateSectionDto {
   isVisible?: boolean;
 }
 
-export interface UpdateSectionDto extends Partial<CreateSectionDto> {}
+export type UpdateSectionDto = Partial<CreateSectionDto>;
 
 export interface Section extends CreateSectionDto {
   sectionId: string;
@@ -122,7 +122,7 @@ export interface CreateCourseDto {
   practiceHours?: number;
 }
 
-export interface UpdateCourseDto extends Partial<CreateCourseDto> {}
+export type UpdateCourseDto = Partial<CreateCourseDto>;
 
 export interface Course extends CreateCourseDto {
   courseId: string;
@@ -315,7 +315,7 @@ export interface CreateNewsDto {
   publishedAt?: string;
 }
 
-export interface UpdateNewsDto extends Partial<CreateNewsDto> {}
+export type UpdateNewsDto = Partial<CreateNewsDto>;
 
 export interface News extends CreateNewsDto {
   id: string;
@@ -334,7 +334,7 @@ export interface CreateHandbookDto {
   pdfUrlEn?: string;
 }
 
-export interface UpdateHandbookDto extends Partial<CreateHandbookDto> {}
+export type UpdateHandbookDto = Partial<CreateHandbookDto>;
 
 export interface Handbook extends CreateHandbookDto {
   id: string;
@@ -1499,7 +1499,7 @@ export interface CreateResearchDto {
   language?: ResearchLanguage;
 }
 
-export interface UpdateResearchDto extends Partial<CreateResearchDto> {}
+export type UpdateResearchDto = Partial<CreateResearchDto>;
 
 export interface Research extends CreateResearchDto {
   id: string;
@@ -1535,7 +1535,7 @@ export interface CreateAchievementDto {
   coverImage?: string;
 }
 
-export interface UpdateAchievementDto extends Partial<CreateAchievementDto> {}
+export type UpdateAchievementDto = Partial<CreateAchievementDto>;
 
 export interface Achievement extends CreateAchievementDto {
   id: string;
@@ -1555,7 +1555,7 @@ export interface CreateAlumniSectionDto {
   isActive?: boolean;
 }
 
-export interface UpdateAlumniSectionDto extends Partial<CreateAlumniSectionDto> {}
+export type UpdateAlumniSectionDto = Partial<CreateAlumniSectionDto>;
 
 export interface CreateAcademicProfileDto {
   major?: string;
@@ -1620,7 +1620,7 @@ export interface CreateAlumniDto {
   meta?: CreateAlumniMetaDto;
 }
 
-export interface UpdateAlumniDto extends Partial<CreateAlumniDto> {}
+export type UpdateAlumniDto = Partial<CreateAlumniDto>;
 
 export interface Alumni extends CreateAlumniDto {
   id: string;
@@ -1696,7 +1696,7 @@ export interface CreateFacultyDto {
   meta?: CreateFacultyMetaDto;
 }
 
-export interface UpdateFacultyDto extends Partial<CreateFacultyDto> {}
+export type UpdateFacultyDto = Partial<CreateFacultyDto>;
 
 export interface Faculty extends CreateFacultyDto {
   id: string;

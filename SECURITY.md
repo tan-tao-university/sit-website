@@ -5,7 +5,7 @@
 If you believe you've found a security vulnerability in this project (the public site, dashboard, or backend API), please report it privately rather than opening a public issue or pull request.
 
 - Preferred: open a [private security advisory](../../security/advisories/new) on GitHub for this repository.
-- Alternative: email **info@ttu.edu.vn** with a description of the issue, steps to reproduce, and its potential impact.
+- Alternative: email **sit@ttu.edu.vn** with a description of the issue, steps to reproduce, and its potential impact.
 
 Please include:
 
