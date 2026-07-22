@@ -54,6 +54,7 @@ export const buildEducationLevelMetadata = (
     description,
     path: locale === "vi" ? viPath : enPath,
     alternatePath: locale === "vi" ? enPath : viPath,
+    image: "/assets/ttu/programs-academic-partnership.jpg",
   });
 };
 

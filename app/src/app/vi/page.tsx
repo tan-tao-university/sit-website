@@ -12,6 +12,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi",
   alternatePath: "/en",
+  image: "/assets/ttu/home-students-campus.jpg",
 });
 
 export default function HomePage() {

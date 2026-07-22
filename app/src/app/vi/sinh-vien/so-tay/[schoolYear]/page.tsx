@@ -16,6 +16,7 @@ export async function generateMetadata({
     description: `Sổ tay chính thức năm học ${schoolYear}: hướng dẫn học tập, học vụ, dự án, nghiên cứu và hỗ trợ sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.`,
     path: `/vi/sinh-vien/so-tay/${schoolYear}`,
     alternatePath: `/en/students/handbook/${schoolYear}`,
+    image: "/assets/ttu/students-library-reading.jpg",
   });
 }
 
