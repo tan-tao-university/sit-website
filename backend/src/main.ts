@@ -113,7 +113,8 @@ async function bootstrap() {
         type: 'http',
         scheme: 'bearer',
         bearerFormat: 'JWT',
-        description: 'Short-lived access token returned by POST /api/v1/auth/login',
+        description:
+          'Short-lived access token returned by POST /api/v1/auth/login',
       },
       'bearer-auth',
     )

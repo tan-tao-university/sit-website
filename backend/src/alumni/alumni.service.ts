@@ -16,7 +16,10 @@ import {
 import { eq, desc, and, ne } from 'drizzle-orm';
 import { CreateAlumniDto } from './dto/create-alumni.dto';
 import { UpdateAlumniDto } from './dto/update-alumni.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
@@ -71,11 +74,11 @@ export class AlumniService {
       );
     }
 
-    let newAlumni;
+    let newAlumni: typeof alumni.$inferSelect;
     try {
       [newAlumni] = await db.insert(alumni).values(alumniData).returning();
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -242,15 +245,14 @@ export class AlumniService {
       }
     }
 
-    let updated;
     try {
-      [updated] = await db
+      await db
         .update(alumni)
         .set({ ...alumniData, updatedAt: new Date() })
         .where(eq(alumni.id, id))
         .returning();
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,

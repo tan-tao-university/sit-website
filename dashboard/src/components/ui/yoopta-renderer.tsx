@@ -65,7 +65,6 @@ export function YooptaRenderer({ value, className }: Props) {
     >
       <YooptaEditor
         editor={editor}
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         plugins={plugins as any}
         marks={MARKS}
         value={value}

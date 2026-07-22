@@ -13,10 +13,7 @@
 type Line = { text: string; size: number };
 
 const escapeHtml = (s: string): string =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;');
+  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
 // Roman numeral + dot at line start, e.g. "I.", "IV.", "XIV." -> top-level heading (h2).
 // Only I/V/X (numerals 1-39): C/D/L/M would collide with "C." / "D." sub-list markers.
@@ -36,7 +33,8 @@ function classify(line: Line, bodySize: number): 'h2' | 'h3' | 'li' | 'p' {
   if (ALPHA_RE.test(t) && t.length < 120) return 'h3';
   if (BULLET_RE.test(t)) return 'li';
   // A short line noticeably larger than body text is likely a heading.
-  if (bodySize > 0 && line.size > bodySize * 1.15 && t.length < 120) return 'h3';
+  if (bodySize > 0 && line.size > bodySize * 1.15 && t.length < 120)
+    return 'h3';
   return 'p';
 }
 
@@ -71,7 +69,10 @@ export function linesToHtml(lines: Line[]): string {
     .slice(start)
     .map((l) => ({
       // Collapse any stray leader dots that survived into readable spacing.
-      text: l.text.replace(/\.{4,}/g, ' ').replace(/\s+/g, ' ').trim(),
+      text: l.text
+        .replace(/\.{4,}/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim(),
       size: l.size,
     }))
     // Drop empty lines and standalone page numbers (a line that is only digits).
@@ -120,11 +121,27 @@ export function linesToHtml(lines: Line[]): string {
   return parts.join('\n');
 }
 
+// unpdf re-exports pdf.js's proxy types in a way `nodenext` module resolution
+// can't follow through the dynamic import below — pin down the shape we
+// actually use instead of letting it fall back to an unresolvable type.
+interface PdfTextItem {
+  str?: string;
+  transform: number[]; // [a,b,c,d,e,f]
+}
+interface PdfDocumentProxy {
+  numPages: number;
+  getPage(pageNum: number): Promise<{
+    getTextContent(): Promise<{ items: PdfTextItem[] }>;
+  }>;
+}
+
 /** Parse a PDF buffer and return semantic HTML. */
 export async function pdfBufferToHtml(buffer: Buffer): Promise<string> {
   // unpdf ships a serverless build of pdf.js (no native deps) — safe on Vercel.
   const { getDocumentProxy } = await import('unpdf');
-  const pdf = await getDocumentProxy(new Uint8Array(buffer));
+  const pdf = (await getDocumentProxy(
+    new Uint8Array(buffer),
+  )) as PdfDocumentProxy;
 
   const lines: Line[] = [];
   for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
@@ -132,11 +149,14 @@ export async function pdfBufferToHtml(buffer: Buffer): Promise<string> {
     const content = await page.getTextContent();
 
     // Group text items into visual lines by their vertical (y) position.
-    const rows = new Map<number, { items: { x: number; str: string }[]; size: number }>();
-    for (const item of content.items as any[]) {
+    const rows = new Map<
+      number,
+      { items: { x: number; str: string }[]; size: number }
+    >();
+    for (const item of content.items) {
       const str: string = item.str ?? '';
       if (!str) continue;
-      const tr = item.transform as number[]; // [a,b,c,d,e,f]
+      const tr = item.transform;
       const x = tr[4];
       const y = Math.round(tr[5]); // round so items on the same line share a key
       const size = Math.abs(tr[3]) || Math.abs(tr[0]) || 0;

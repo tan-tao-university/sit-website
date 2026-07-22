@@ -5,10 +5,13 @@ import {
 } from '@nestjs/common';
 import { db } from '../../db';
 import { program, content, contentTranslation } from '../../db/schema';
-import { eq, and, ne, SQL, sql } from 'drizzle-orm';
+import { eq, and, ne, SQL } from 'drizzle-orm';
 import { CreateProgramDto } from './dto/create-program.dto';
 import { UpdateProgramDto } from './dto/update-program.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
@@ -77,7 +80,7 @@ export class ProgramService {
       return { ...newProgram, content: newContent };
     } catch (error) {
       // Fallback: Handle unique constraint violation if check missed something
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -174,7 +177,7 @@ export class ProgramService {
 
     if (conditions.length > 0) {
       // Use 'and' to combine multiple conditions
-      // @ts-ignore
+      // @ts-expect-error Drizzle's .where() narrows the builder type, which isn't assignable back to `query`'s pre-where type.
       query = query.where(and(...conditions));
     }
 
@@ -259,7 +262,7 @@ export class ProgramService {
         return updated;
       } catch (error) {
         // Fallback: Handle unique constraint violation if check missed something
-        if (error.code === '23505') {
+        if (isPgUniqueViolation(error)) {
           const parsedError = parseDuplicateKeyError(error);
           throw new ConflictException({
             message: parsedError.message,

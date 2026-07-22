@@ -28,8 +28,6 @@ export class AchievementService {
     visibility?: string;
     isHighlight?: boolean;
   }) {
-    const query = db.select().from(achievement);
-
     const conditions: SQL<unknown>[] = [];
 
     if (filters?.type) {

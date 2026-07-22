@@ -11,7 +11,7 @@ const fakeFile = (name: string) =>
     originalname: name,
     buffer: Buffer.from('hi'),
     mimetype: 'image/png',
-  }) as any;
+  }) as Express.Multer.File;
 
 describe('UploadService (local storage)', () => {
   afterAll(async () => {

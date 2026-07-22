@@ -1,3 +1,5 @@
+import { Request } from 'express';
+
 export interface AccessTokenPayload {
   sub: string;
   email: string;
@@ -8,4 +10,8 @@ export interface AccessTokenPayload {
 export interface AuthenticatedUser extends AccessTokenPayload {
   iat?: number;
   exp?: number;
+}
+
+export interface AuthenticatedRequest extends Request {
+  user?: AuthenticatedUser;
 }
