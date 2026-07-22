@@ -1,0 +1,17 @@
+{
+  "name": "school-of-information-technology",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.13.1+sha512.37ebf1a5c7a30d5fabe0c5df44ee8da4c965ca0c5af3dbab28c3a1681b70a256218d05c81c9c0dcf767ef6b8551eb5b960042b9ed4300c59242336377e01cfad",
+  "scripts": {
+    "dev": "pnpm -r --parallel --filter backend --filter frontend --filter dashboard run dev",
+    "build": "pnpm -r --filter backend --filter frontend --filter dashboard run build",
+    "build:backend": "pnpm --filter backend run build",
+    "build:app": "pnpm --filter frontend run build",
+    "build:dashboard": "pnpm --filter dashboard run build",
+    "start": "pnpm -r --parallel --filter backend --filter frontend --filter dashboard run start",
+    "start:backend": "pnpm --filter backend run start",
+    "start:app": "pnpm --filter frontend run start",
+    "start:dashboard": "pnpm --filter dashboard run start"
+  }
+}

@@ -1,0 +1,1460 @@
+{
+  "metadata": {
+    "title": "School of Information Technology - Tan Tao University",
+    "description": "Tan Tao University's School of Information Technology offers programs in Computer Science, Data Science, Artificial Intelligence and Information Technology with a focus on practice and research.",
+    "keywords": "School of Information Technology Tan Tao University, Computer Science, Data Science, Artificial Intelligence, Information Technology, SIT, TTU"
+  },
+  "header": {
+    "phone": "+84 272 376 9216",
+    "email": "sit@ttu.edu.vn",
+    "slogan": "Accompanying the Industry 4.0 technology revolution",
+    "university": "Tan Tao University",
+    "faculty": "School of Information Technology",
+    "navigation": {
+      "about": "About",
+      "programs": "Programs",
+      "students": "Students",
+      "research": "Research",
+      "news": "News",
+      "faculty": "Faculty",
+      "researchOverview": "Research overview",
+      "scientificProjects": "Scientific projects",
+      "scientificPublications": "Scientific publications",
+      "studentsOverview": "Student life overview",
+      "studentsAdmissions": "Admissions portal",
+      "studentsHandbook": "Student handbook",
+      "studentsActivities": "Student activities",
+      "studentsInternships": "Internships & careers",
+      "studentsAlumni": "Alumni network"
+    },
+    "contact": "Consultation Hotline",
+    "close": "Close",
+    "exploreSit": "Explore SIT",
+    "quickLinks": "Quick Links",
+    "about": "About",
+    "news": "News",
+    "research": "Research",
+    "students": "Students",
+    "contactButton": "Contact",
+    "contactLink": "Contact",
+    "faqLink": "FAQ",
+    "messengerLink": "Message us",
+    "programsDescription": "Discover our comprehensive academic programs designed for every type of learner.",
+    "studentsDescription": "Everything you need to know about student life, admissions, and opportunities.",
+    "researchDescription": "Explore our cutting-edge research initiatives and scientific contributions.",
+    "exploreDescription": "Discover everything SIT has to offer for students and researchers.",
+    "programsBrowseDescription": "Browse all of our programs and specializations.",
+    "language": {
+      "vi": "Tiếng Việt",
+      "en": "English"
+    },
+    "search": "Search",
+    "searchPlaceholder": "Search anything...",
+    "menu": "Menu",
+    "noResults": "No results found.",
+    "recentSearch": "Recent Search",
+    "courseSchedule": "Course Schedule",
+    "studentDashboard": "Student Dashboard",
+    "quickActions": "Quick Actions",
+    "searchPosts": "Search for posts",
+    "academicPrograms": "Academic Programs",
+    "curriculums": "Curriculums",
+    "footerNavigate": "to navigate",
+    "footerSelect": "to select",
+    "footerClose": "to close"
+  },
+  "textRibbon": {
+    "messages": [
+      "SIT students win third prize at Ancient8 Builder Jam (13 Jan 2025)",
+      "Spring 2025 timetable available for Year 2-4 students",
+      "Workshop: Getting started with Web3 App development (18 Dec 2024)",
+      "External evaluators visit the Computer Science program (11-15 Jan 2025)",
+      "Seminar: Communicating on social media platforms (07 Jan 2025)",
+      "Open House 01 – Journey to shape the future (05 Jan 2025)"
+    ]
+  },
+  "hero": {
+    "welcome": "Welcome to SIT",
+    "title": "Explore the world of",
+    "dynamicTexts": [
+      "Computer Science",
+      "Artificial Intelligence",
+      "Data Science",
+      "Software Engineering",
+      "Web3 Applications",
+      "Digital Transformation"
+    ],
+    "subtitle": "Tan Tao University's School of Information Technology embraces the Liberal Arts - Lifelong Learning philosophy, empowering students to lead Vietnam's digital transformation.",
+    "explore": "Explore Now",
+    "watchVideo": "Discover SIT",
+    "imageEyebrow": "The SIT learning experience",
+    "imageTitle": "Learn through projects. Grow through experience.",
+    "imageDescription": "Connect computing foundations, research and real-world challenges."
+  },
+  "stats": {
+    "title": "Key milestones",
+    "subtitle": "Official highlights from Tan Tao University and SIT",
+    "items": [
+      {
+        "number": "2011",
+        "label": "School of Information Technology founded"
+      },
+      {
+        "number": "—",
+        "label": "Scientific projects"
+      },
+      {
+        "number": "—",
+        "label": "Scientific publications"
+      },
+      {
+        "number": "80+",
+        "label": "Total enrolled students"
+      }
+    ]
+  },
+  "programs": {
+    "badge": "Academic Programs",
+    "title": "Explore our Academic Programs",
+    "titleHighlight": "Information Technology Pathways",
+    "subtitle": "Tan Tao University's School of Information Technology offers programs in Computer Science, Data Science, Artificial Intelligence and Information Technology, combining a strong academic foundation with practice and research.",
+    "programsSubtitle": "From undergraduate to postgraduate, each pathway is designed to help you master technology and step confidently into your future career.",
+    "viewAll": "View All Programs",
+    "viewDetails": "View Details",
+    "relatedPrograms": "Related Programs",
+    "exploreOtherPrograms": "Explore Other Programs",
+    "exploreOtherProgramsDescription": "Browse other programs in the same field",
+    "undergraduate": "Undergraduate",
+    "graduate": "Graduate",
+    "whyChoose": "Why choose the School of IT?",
+    "features": [
+      {
+        "title": "Clear study pathways",
+        "description": "Students can choose a program aligned with their academic and career goals across computing, data, artificial intelligence and information technology."
+      },
+      {
+        "title": "Faculty guidance",
+        "description": "Lecturers with teaching and research experience help students build subject knowledge, complete projects and take their first steps into scientific research."
+      },
+      {
+        "title": "Learning through practice",
+        "description": "Labs, computer facilities and practice-based modules give students opportunities to apply their knowledge to concrete technology problems."
+      }
+    ],
+    "financialSupport": "Scholarship pathways for graduate studies in Vietnam and abroad",
+    "details": {
+      "shared": {
+        "keyDetailsTitle": "Key details",
+        "programCard": {
+          "codeLabel": "Program code",
+          "featuresLabel": "Key topics",
+          "ctaLabel": "View module outline"
+        }
+      },
+      "undergraduate": {
+        "hero": {
+          "breadcrumbs": [
+            "Home",
+            "Programs",
+            "Undergraduate"
+          ],
+          "title": "Undergraduate Programs",
+          "highlight": "Computer Science & Data Innovation",
+          "subtitle": "Bring your ideas to life through a liberal arts-inspired curriculum that blends technology, creativity and entrepreneurship.",
+          "ctaPrimary": "Apply for admission",
+          "ctaSecondary": "Explore programs",
+          "image": "/assets/banner-KT2.png",
+          "alt": "Undergraduate students exploring technology pathways"
+        },
+        "keyDetails": [
+          {
+            "label": "Location",
+            "value": "Tan Tao University",
+            "description": "Tan Duc E.City, Long An"
+          },
+          {
+            "label": "Course duration",
+            "value": "4 years",
+            "description": "128 credits including internships"
+          },
+          {
+            "label": "Attendance",
+            "value": "Full-time",
+            "description": "Studio sessions & research projects"
+          },
+          {
+            "label": "Admission",
+            "value": "7480101",
+            "description": "National exam & direct admissions"
+          }
+        ],
+        "overview": {
+          "badge": "Learning journey",
+          "title": "Shape your undergraduate experience",
+          "description": "Choose a pathway that connects liberal arts foundations with specialised IT tracks and industry practice.",
+          "points": [
+            "First-year core in algorithms, programming and liberal arts",
+            "Specialisation tracks in Software Engineering, Data Science or AI",
+            "Industry internships and research mentorship from SIT faculty",
+            "Capstone projects solving real problems with partner organisations"
+          ]
+        }
+      },
+      "graduate": {
+        "hero": {
+          "breadcrumbs": [
+            "Home",
+            "Programs",
+            "Graduate"
+          ],
+          "title": "Graduate Studies",
+          "highlight": "Advanced Computer Science",
+          "subtitle": "Deepen your expertise with research-driven coursework guided by SIT academics and industry collaborators.",
+          "ctaPrimary": "Request program guide",
+          "ctaSecondary": "Speak with faculty",
+          "image": "/assets/meeting.png",
+          "alt": "Graduate student presenting research to faculty"
+        },
+        "keyDetails": [
+          {
+            "label": "Location",
+            "value": "Tan Tao University",
+            "description": "Graduate School facilities"
+          },
+          {
+            "label": "Course duration",
+            "value": "2 years",
+            "description": "36 credits including thesis"
+          },
+          {
+            "label": "Attendance",
+            "value": "Hybrid",
+            "description": "Evening blocks & research labs"
+          },
+          {
+            "label": "Admission",
+            "value": "7480102",
+            "description": "Research proposal & interview"
+          }
+        ],
+        "overview": {
+          "badge": "Graduate journey",
+          "title": "Pursue postgraduate excellence",
+          "description": "Advance your career and research impact through tailored supervision, innovation labs and cross-campus resources.",
+          "points": [
+            "Advanced seminars covering emerging computing paradigms",
+            "Individual research supervision aligned with industry needs",
+            "Opportunities to publish with SIT-led research teams",
+            "Access to modern labs and the Tan Tao innovation ecosystem"
+          ]
+        }
+      }
+    },
+    "programPage": {
+      "shared": {
+        "breadcrumbs": [
+          "Course finder"
+        ],
+        "actions": [
+          {
+            "label": "Order a prospectus",
+            "description": "Download the latest SIT brochure"
+          },
+          {
+            "label": "Book an open day",
+            "description": "Visit the campus and meet faculty"
+          }
+        ],
+        "applyLabel": "Apply now",
+        "overview": {
+          "badge": "Program overview",
+          "title": "Lead with technology and creativity",
+          "description": "SIT blends liberal arts foundations with hands-on computing studios to help you build a meaningful career.",
+          "points": [
+            "Collaborative studios mentored by SIT faculty",
+            "Industry workshops and innovation challenges",
+            "Global mindset with local community impact",
+            "Personalised advising and research supervision"
+          ]
+        },
+        "curriculum": {
+          "badge": "Curriculum highlights",
+          "title": "What you'll learn",
+          "description": "Core modules strengthen your fundamentals before you specialise through labs, internships and capstone projects.",
+          "placeholder": "Core curriculum update"
+        },
+        "career": {
+          "badge": "Career pathways",
+          "title": "Where this program can take you",
+          "points": [
+            "Software and data engineering roles",
+            "AI and analytics research positions",
+            "Product leadership and digital innovation",
+            "Entrepreneurship within the SIT ecosystem"
+          ]
+        }
+      },
+      "undergraduate": {
+        "heroTagline": "Bring your ideas to life in a studio-inspired environment.",
+        "heroImage": "/assets/banner-KT2.png",
+        "keyFacts": [
+          {
+            "label": "Program code",
+            "value": "{{code}}"
+          },
+          {
+            "label": "Entry requirements",
+            "value": "High school diploma & SIT admissions interview"
+          },
+          {
+            "label": "Length",
+            "value": "4 years"
+          },
+          {
+            "label": "Department",
+            "value": "School of Information Technology"
+          }
+        ]
+      },
+      "graduate": {
+        "heroTagline": "Advance your research with faculty mentorship and innovation labs.",
+        "heroImage": "/assets/meeting.png",
+        "keyFacts": [
+          {
+            "label": "Program code",
+            "value": "{{code}}"
+          },
+          {
+            "label": "Entry requirements",
+            "value": "Bachelor's degree in IT or related field"
+          },
+          {
+            "label": "Length",
+            "value": "2 years"
+          },
+          {
+            "label": "Department",
+            "value": "Graduate School of Information Technology"
+          }
+        ]
+      }
+    },
+    "programSlugPage": {
+      "shared": {
+        "hero": {
+          "badge": "Graduate Programs",
+          "fallbackImage": "/assets/meeting.png",
+          "inquireLabel": "Inquire",
+          "applyLabel": "Apply"
+        },
+        "meta": {
+          "schoolLabel": "School",
+          "divisionLabel": "Division",
+          "levelLabel": "Award"
+        },
+        "overview": {
+          "title": "Program insights",
+          "description": "Explore curriculum structure, experiential learning highlights and academic milestones at SIT.",
+          "sections": [
+            {
+              "title": "Program snapshot",
+              "points": [
+                "Outcome-based modules aligned with Vietnam's digital economy",
+                "Flexible electives curated across engineering and business",
+                "Studio-based labs and interdisciplinary projects",
+                "Mentorship from faculty and industry practitioners"
+              ]
+            },
+            {
+              "title": "Graduate competencies",
+              "points": [
+                "Design and deliver software products end-to-end",
+                "Implement AI, data science and cloud solutions",
+                "Collaborate in multicultural teams with agile workflows",
+                "Lead innovation initiatives across sectors"
+              ]
+            }
+          ]
+        },
+        "curriculum": {
+          "title": "Curriculum structure",
+          "description": "This pathway combines foundational courses, studio labs and immersive capstone projects.",
+          "placeholder": "Curriculum update coming soon"
+        },
+        "ctaBanner": {
+          "title": "Ready to shape the future?",
+          "description": "Connect with the SIT admissions team to explore scholarships, mentorship and research opportunities.",
+          "primary": "Talk to us",
+          "secondary": "Download brochure"
+        },
+        "accordion": {
+          "title": "PART I. GENERAL INFORMATION ABOUT THE TRAINING PROGRAM",
+          "items": [
+            {
+              "title": "1. Introduction to the 2022 Training Program",
+              "content": [
+                "The training program is designed to provide students with a solid foundation of knowledge and practical skills in the field of information technology. The program combines theory and practice, helping students develop comprehensive skills necessary for future careers.",
+                "Students will be equipped with basic knowledge of computer science, programming, databases, computer networks and modern technologies. In addition, the program also focuses on developing soft skills such as critical thinking, problem solving and teamwork.",
+                "The Bachelor of Computer Science program is designed to meet the needs of the labor market, ensuring graduates have sufficient capacity to work in diverse information technology fields."
+              ],
+              "defaultOpen": true
+            },
+            {
+              "title": "2. Information about the 2022 Training Program",
+              "content": [
+                "The training program is updated and adjusted according to international standards, ensuring currency and alignment with the development trends of the information technology industry."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "3. Mission - Vision – Core Values – Educational Philosophy",
+              "content": [
+                "The mission of the program is to train high-quality human resources in the field of information technology, contributing to the development of the digital economy and smart society."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "4. Objectives of the training program",
+              "content": [
+                "The objective of the program is to train students to become capable information technology professionals with professional ethics and the ability to adapt to rapid technological changes."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "5. Program Learning Outcomes (PLO)",
+              "content": [
+                "Upon completion of the program, students will achieve learning outcomes in knowledge, skills and attitudes, ensuring they meet the requirements of the labor market and can continue their studies at higher levels."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "6. Entry Requirements",
+              "content": [
+                "Entry requirements for the program include students who have completed undergraduate or college programs with sufficient basic knowledge and skills in information technology."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "7. Study Load",
+              "content": [
+                "The study load of the program is 128 credits, including 64 credits of coursework and 64 credits of practical training."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "8. Structure and Content of the Training Program",
+              "content": [
+                "The structure and content of the program include basic information technology modules, specialized information technology modules and practical information technology modules."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "9. Strategy, Teaching-Learning Methods and Lecturer Preparation",
+              "content": [
+                "The program applies modern teaching methods, combining theory and practice. Lecturers are trained and well-prepared to ensure the best teaching quality for students."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "10. Assessment Methods",
+              "content": [
+                "The program uses a variety of assessment methods including tests, assignments, practical projects and continuous assessment throughout the learning process."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "11. Graduation Module",
+              "content": [
+                "The graduation module is a graduation project or thesis, helping students synthesize and apply the knowledge they have learned in practice."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "12. Improving and Enhancing Teaching Quality",
+              "content": [
+                "The program is continuously improved and enhanced through collecting feedback from students, lecturers and stakeholders, updating content according to the latest technology trends."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "13. About Post-Graduation Job Positions",
+              "content": [
+                "Graduates can work in various positions in the field of information technology such as programmers, software engineers, data analysts, system administrators and many other positions."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "14. Learning Opportunities and Skill Enhancement",
+              "content": [
+                "Students have many opportunities to continue learning and improving their skills through postgraduate programs, specialized courses and international certifications."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "15. Workplace After Graduation",
+              "content": [
+                "Graduates can work at technology companies, government organizations, universities, research institutes and businesses in various fields."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "16. Admission Information, Training Process and Graduation Conditions",
+              "content": [
+                "Information about the admission process, entry requirements, training process and graduation requirements are clearly and transparently published for all applicants and students."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "17. Compared Training Programs",
+              "content": [
+                "The training program is benchmarked against similar programs at reputable universities at home and abroad to ensure competitiveness and quality."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "18. Minimum Conditions for Implementing the Training Program",
+              "content": [
+                "The minimum conditions for implementing the training program including facilities, equipment, teaching staff and other necessary resources are all fully guaranteed."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "19. Summary of Module Content",
+              "content": [
+                "The program includes basic modules in mathematics, computer science, programming, databases, computer networks, artificial intelligence and specialized modules for each major."
+              ],
+              "defaultOpen": false
+            }
+          ]
+        },
+        "accordionPart2": {
+          "title": "PART II. PROGRAM USAGE GUIDE",
+          "items": [
+            {
+              "title": "1. General courses",
+              "content": [
+                "Content related to general courses."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "2. Guide to determining content and study time",
+              "content": [
+                "Detailed guide on how to determine the content and study time for each course."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "3. Guide to organizing end-of-course exams",
+              "content": [
+                "Procedures and guidelines for organizing end-of-course examinations."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "4. Guide to considering graduation recognition",
+              "content": [
+                "Criteria and regulations for graduation recognition."
+              ],
+              "defaultOpen": false
+            },
+            {
+              "title": "5. Other notes: Implementation plan for Graduation Internship/Experience Internship",
+              "content": [
+                "Information on the implementation plan for graduation internships and experience internships, along with other important notes."
+              ],
+              "defaultOpen": false
+            }
+          ]
+        }
+      },
+      "undergraduate": {
+        "hero": {
+          "badge": "Undergraduate Programs",
+          "fallbackImage": "/assets/banner-KT2.png"
+        },
+        "meta": {
+          "school": "School of Information Technology",
+          "division": "Tan Tao University",
+          "level": "Bachelor"
+        }
+      },
+      "graduate": {
+        "hero": {
+          "badge": "Graduate Programs",
+          "fallbackImage": "/assets/meeting.png"
+        },
+        "meta": {
+          "school": "School of Information Technology",
+          "division": "Graduate Division",
+          "level": "Master"
+        }
+      }
+    },
+    "programs": {
+      "undergraduate": {
+        "computerScience": {
+          "title": "Bachelor of Computer Science",
+          "programs": [
+            {
+              "title": "Bachelor of Computer Science (Curriculum 2025)",
+              "code": "7480101",
+              "description": "Focus tracks in Data Engineering and Software Engineering with strong foundations in algorithms and systems design.",
+              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
+            },
+            {
+              "title": "Bachelor of Computer Science (Curriculum 2025 – Vietnamese)",
+              "code": "7480101-VN",
+              "description": "Vietnamese-delivered programme with Data Engineering and Software Engineering orientations aligned with domestic industry needs.",
+              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
+            },
+            {
+              "title": "Bachelor of Computer Science (Curriculum 2021 – English)",
+              "code": "7480101-EN",
+              "description": "English-delivered programme preparing students for international postgraduate study and careers.",
+              "features": "Java, Python, C++, Web Development, Mobile Apps, Software Architecture, Data Engineering"
+            }
+          ]
+        },
+        "dataScience": {
+          "title": "Bachelor of Data Science",
+          "programs": [
+            {
+              "title": "Bachelor of Data Science (Curriculum 2025)",
+              "code": "7480104",
+              "description": "Specialisations in Bioinformatics and Business Analytics combining statistics, computing and domain knowledge.",
+              "features": "Data Analytics, Business Intelligence, Bioinformatics, Statistical Modeling, Big Data"
+            }
+          ]
+        },
+        "artificialIntelligence": {
+          "title": "Bachelor of Artificial Intelligence",
+          "programs": [
+            {
+              "title": "Bachelor of Artificial Intelligence (Curriculum 2025)",
+              "code": "7480109",
+              "description": "Concentrations in Computer Vision and Natural Language Processing with hands-on machine learning projects.",
+              "features": "Machine Learning, Deep Learning, Computer Vision, Natural Language Processing, Neural Networks"
+            }
+          ]
+        }
+      },
+      "graduate": {
+        "computerScience": {
+          "title": "Master of Computer Science",
+          "programs": [
+            {
+              "title": "Master of Computer Science (Curriculum 2025)",
+              "code": "7480102",
+              "description": "Graduate-level research in advanced computing, innovation and collaboration with Tan Tao University's academic ecosystem.",
+              "features": "Advanced Algorithms, Research Methods, Thesis Project, Industry Collaboration, Innovation"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "about": {
+    "title": "About SIT",
+    "subtitle": "School of Information Technology at Tan Tao University",
+    "description": "Founded in 2011, the School of Information Technology provides education and conducts research in Computer Science, Data Science, Artificial Intelligence and Information Technology at Tan Tao University.",
+    "heroImageAlt": "Students of the School of Information Technology at Tan Tao University",
+    "heroMediaEyebrow": "Education and research",
+    "heroMediaTitle": "Building strong foundations across technology disciplines",
+    "heroMediaDescription": "Computer Science · Data Science · Artificial Intelligence · Information Technology",
+    "whatWeDo": "WHAT WE DO",
+    "ourApproach": "OUR APPROACH",
+    "howWeDoIt": "HOW WE DO IT",
+    "howWeEducate": "HOW WE EDUCATE",
+    "howWeOperate": "HOW WE OPERATE",
+    "ourPhilosophy": "OUR PHILOSOPHY",
+    "liberalArtsTitle": "Liberal Arts Education",
+    "liberalArtsDescription": "The liberal arts philosophy encourages critical thinking, self-directed learning and adaptability, helping students develop professional skills on a broad foundation of knowledge.",
+    "lifelongLearningTitle": "Lifelong Learning",
+    "lifelongLearningDescription": "Students are encouraged to maintain a lifelong learning mindset and continuously update their knowledge and skills as technology evolves.",
+    "qualityAssuranceTitle": "Quality Assurance",
+    "qualityAssuranceDescription": "Programs are reviewed periodically, use outcome-based education and improve teaching and learning with a learner-centred approach.",
+    "founded": "Founded",
+    "facultyLevel": "Full-time faculty holding doctorates (2024)",
+    "programs": "Academic programs",
+    "visionYear": "Vision Year",
+    "organizationalStructureTitle": "Organizational Structure",
+    "facultyExcellenceTitle": "Faculty Team",
+    "technologyIntegrationTitle": "Technology Integration",
+    "technologyIntegrationDescription": "Foreign language proficiency and digital tools are integrated into teaching, learning and administration to satisfy learners, employers and society.",
+    "transparentEnvironmentTitle": "Transparent Environment",
+    "transparentEnvironmentDescription": "SIT builds an open, transparent workplace that enables every member to maximise their potential while keeping students at the centre.",
+    "readyToStart": "Ready to start with us?",
+    "joinEcosystem": "Join SIT's learning ecosystem. Contact us today.",
+    "explorePrograms": "Explore programs",
+    "contactUs": "Contact Us",
+    "history": "Our History",
+    "historyText": "The School of Information Technology originated from the Faculty of Engineering, established on 4 January 2011 (Decision No. 82/QD.TTU.11) to deliver Computer Science programmes. The title “School of Information Technology” became official on 1 June 2023 under Decision No. 70/QD-TTU.23.",
+    "faculty": "Faculty Team",
+    "facultyText": "According to the 2024 Computer Science program self-assessment report, SIT had six full-time lecturers and all held doctoral degrees. They contribute to teaching, research and student supervision.",
+    "mission": "Our Mission",
+    "missionText": "Educate and develop undergraduate talent in information technology and computing; research and apply Computer Science, Information Technology and Communications in practice; and pursue liberal arts and lifelong learning in higher education.",
+    "vision": "Our Vision",
+    "visionText": "By 2030, SIT aims to educate highly qualified graduates who meet labour-market needs and to rank among Vietnam's leading units for education, research and technology transfer in information technology and computing.",
+    "values": "Core Values",
+    "valuesText": "Tan Tao University's seven core values guide its education, research and academic community.",
+    "valuesList": [
+      "Responsibility",
+      "Collaboration",
+      "Effort",
+      "Quality",
+      "Creativity",
+      "Respect",
+      "Leadership"
+    ],
+    "philosophy": "Educational Philosophy",
+    "philosophyText": "Liberal Arts – Lifelong Learning",
+    "philosophyDetails": {
+      "liberalArts": {
+        "title": "Liberal Arts",
+        "description": "Liberal arts education encourages critical thinking, self-directed learning, independent work and collaboration grounded in information and data analysis."
+      },
+      "lifelongLearning": {
+        "title": "Lifelong Learning",
+        "description": "Lifelong learning helps students continuously improve their expertise, adaptability and ability to work in a rapidly changing technology environment."
+      }
+    },
+    "organization": "Organizational Structure",
+    "organizationText": "The School structure includes: (1) Faculty Council, (2) Leadership Board, (3) Office Division, (4) Academic Departments.",
+    "qualityPolicy": "Quality Policy",
+    "qualityPolicyText": "SIT commits to outcome-based education, continuous improvement of teaching, learner-centred assessment, technological integration and a transparent academic culture.",
+    "dean": "Dean",
+    "deanName": "Dr. Cao Tien Dung",
+    "contact": "Contact Information",
+    "phone": "+84 272 376 9216",
+    "email": "sit@ttu.edu.vn"
+  },
+  "students": {
+    "badge": "Student life",
+    "title": "Student Life",
+    "subtitle": "Empowering Future Technology Leaders",
+    "description": "SIT supports students with advising, research, competitions and community engagement, ensuring every learner can thrive academically and professionally.",
+    "studentSupport": "Student Support Services",
+    "supportServices": [
+      {
+        "title": "Academic advising",
+        "description": "Personalised study planning aligned with programme structures and graduate pathways."
+      },
+      {
+        "title": "Career services",
+        "description": "Internships, mentoring and connections with industry partners in Vietnam and overseas."
+      },
+      {
+        "title": "Research cohorts",
+        "description": "Opportunities to join faculty-led research, competitions and innovation projects."
+      },
+      {
+        "title": "Student clubs & workshops",
+        "description": "Technology clubs, seminars and soft-skill workshops organised throughout the year."
+      }
+    ],
+    "achievements": "Recent Highlights",
+    "achievementStats": [
+      {
+        "number": "2025",
+        "label": "Ancient8 Builder Jam third prize – Meme Trade Co. team"
+      },
+      {
+        "number": "2024",
+        "label": "Workshop on Web3 App development with MetaCyber8"
+      },
+      {
+        "number": "2024",
+        "label": "Industry visit to Simpson Strong-Tie Vietnam"
+      },
+      {
+        "number": "2024",
+        "label": "Faculty recognised for supporting student research"
+      }
+    ],
+    "testimonials": "Stories from SIT News",
+    "testimonialsList": [
+      {
+        "name": "SIT Newsroom",
+        "program": "Ancient8 Builder Jam 2025",
+        "quote": "Reported on 13 Jan 2025: the Meme Trade Co. team of SIT and SEB students earned third prize and a scholarship at the Ancient8 Builder Jam."
+      },
+      {
+        "name": "SIT Newsroom",
+        "program": "Simpson Strong-Tie partnership",
+        "quote": "Published on 13 Dec 2024: SIT students visited Simpson Strong-Tie Vietnam to explore professional engineering workflows and career opportunities."
+      }
+    ],
+    "ctaTitle": "Join our student community",
+    "ctaDescription": "Become part of a vibrant ecosystem of technologists, innovators and community leaders at SIT.",
+    "ctaPrimary": "Apply now",
+    "ctaSecondary": "Discover support services"
+  },
+  "studentsActivities": {
+    "badge": "Student activities",
+    "title": "Vibrant learning beyond the classroom",
+    "subtitle": "Clubs, competitions and community projects help SIT students lead and collaborate.",
+    "description": "We nurture multidisciplinary experiences that fuel creativity, teamwork and social impact.",
+    "highlights": [
+      {
+        "title": "Innovation clubs",
+        "description": "AI, Web3, robotics, media and entrepreneurship clubs host weekly meetups and product sprints."
+      },
+      {
+        "title": "Community outreach",
+        "description": "Students mentor high school learners, teach coding basics and support digital literacy campaigns."
+      },
+      {
+        "title": "Competitions & hackathons",
+        "description": "Teams prepare for national and regional challenges with coaching from faculty and alumni."
+      }
+    ],
+    "programs": [
+      {
+        "title": "Signature activity streams",
+        "summary": "Choose pathways that match your interests and career goals.",
+        "details": [
+          "Maker studio labs for rapid prototyping and creative coding",
+          "Soft-skill workshops covering leadership, communication and design thinking",
+          "Industry immersion days and company visits each semester"
+        ]
+      },
+      {
+        "title": "Student-led initiatives",
+        "summary": "Pitch your idea and access micro-grants to launch new communities.",
+        "details": [
+          "Campus media crew telling SIT stories across platforms",
+          "Tech volunteering squads supporting NGOs and local schools",
+          "Well-being ambassadors fostering inclusive learning environments"
+        ]
+      }
+    ],
+    "storiesTitle": "Highlights from recent activities",
+    "stories": [
+      {
+        "title": "Ancient8 Builder Jam showcase",
+        "description": "SIT & SEB students co-designed Meme Trade Co., winning third prize and scholarships."
+      },
+      {
+        "title": "Simpson Strong-Tie industry immersion",
+        "description": "Learners explored engineering workflows, safety standards and career tracks at the Long An facility."
+      },
+      {
+        "title": "Web3 starter workshop",
+        "description": "MetaCyber8 mentors introduced dApp development, wallets and hackathon preparation."
+      }
+    ],
+    "ctaTitle": "Bring your idea to life",
+    "ctaDescription": "Propose a club, host a community workshop or request support for your competition team.",
+    "ctaPrimary": "Submit activity proposal",
+    "ctaSecondary": "View activity calendar"
+  },
+  "studentsInternships": {
+    "badge": "Internships & careers",
+    "title": "Career-ready from day one",
+    "subtitle": "SIT blends liberal arts foundations with hands-on placements and mentorship.",
+    "description": "Students practise industry workflows through structured internships, co-ops and freelance labs.",
+    "pillars": [
+      {
+        "title": "Career coaching",
+        "description": "Resume labs, portfolio reviews and mock interviews led by faculty advisors and partner recruiters."
+      },
+      {
+        "title": "Industry partnerships",
+        "description": "Collaborations with startups, tech enterprises and social impact organisations across Vietnam."
+      },
+      {
+        "title": "Research internships",
+        "description": "Join faculty-led labs to produce prototypes, publications or applied research for partners."
+      }
+    ],
+    "tracks": [
+      {
+        "title": "Internship journey",
+        "points": [
+          "Year 2 exploration projects introduce agile teamwork and client communication",
+          "Year 3 professional placements span 10-12 weeks with defined project outcomes",
+          "Year 4 capstone internships integrate research, business and innovation deliverables"
+        ]
+      },
+      {
+        "title": "Career services toolkit",
+        "points": [
+          "Job boards curated for software, AI, data and product roles",
+          "Networking mixers with alumni, recruiters and startup founders",
+          "Visa and entrepreneurship guidance for students pursuing international pathways"
+        ]
+      }
+    ],
+    "resourcesTitle": "Featured opportunities",
+    "resources": [
+      {
+        "title": "Simpson Strong-Tie Vietnam",
+        "description": "Internships in structural engineering software, BIM workflows and digital fabrication support."
+      },
+      {
+        "title": "MAAZ AI – FPT Automotive",
+        "description": "Machine learning projects covering perception systems and intelligent manufacturing."
+      },
+      {
+        "title": "SIT Innovation Lab",
+        "description": "On-campus studio solving partner briefs in fintech, healthtech and smart cities."
+      }
+    ],
+    "ctaTitle": "Shape your professional journey",
+    "ctaDescription": "Work with the career team to map internships, research roles or entrepreneurial ventures.",
+    "ctaPrimary": "Book a coaching session",
+    "ctaSecondary": "Access internship portal"
+  },
+  "studentsAlumni": {
+    "badge": "Alumni network",
+    "title": "Connected for lifelong learning",
+    "subtitle": "SIT graduates drive innovation across technology, business and social impact sectors.",
+    "description": "Our alumni community mentors students, co-develops curricula and opens doors to global opportunities.",
+    "impact": [
+      {
+        "value": "20+",
+        "label": "Active alumni",
+        "description": "Across Vietnam, Singapore, the US and Europe"
+      },
+      {
+        "value": "60%",
+        "label": "Hold leadership roles",
+        "description": "In product, engineering, data and innovation teams"
+      },
+      {
+        "value": "40%",
+        "label": "Pursue postgraduate study",
+        "description": "At universities in Asia, Australia, Europe and North America"
+      }
+    ],
+    "initiatives": [
+      {
+        "title": "Alumni mentoring circles",
+        "description": "Monthly sessions pairing students with graduates for career insights and portfolio feedback."
+      },
+      {
+        "title": "Global networking hubs",
+        "description": "Community leaders coordinate meetups in Ho Chi Minh City, Hanoi, Singapore and Silicon Valley."
+      },
+      {
+        "title": "Giving back",
+        "description": "Alumni sponsor scholarships, judge competitions and support research collaborations."
+      }
+    ],
+    "storiesTitle": "Alumni spotlights",
+    "stories": [
+      {
+        "name": "Le Hoang Linh",
+        "role": "Senior Data Scientist, Singapore",
+        "quote": "SIT's studio model prepared me to lead cross-functional teams delivering AI products at scale."
+      },
+      {
+        "name": "Tran Gia Han",
+        "role": "Product Manager, Fintech",
+        "quote": "Industry mentors and liberal arts electives helped me balance technical depth with business strategy."
+      }
+    ],
+    "ctaTitle": "Stay connected with SIT",
+    "ctaDescription": "Update your details, mentor current students or collaborate on innovation challenges.",
+    "ctaPrimary": "Join alumni directory",
+    "ctaSecondary": "Share your story"
+  },
+  "research": {
+    "title": "Research & Innovation",
+    "subtitle": "Advancing technology through collaboration",
+    "description": "Faculty and students engage in research areas that match Tan Tao University's strategic priorities and Vietnam's digital transformation agenda.",
+    "heroBadge": "Research portfolio",
+    "heroCtaPrimary": "Explore initiatives",
+    "heroCtaSecondary": "Meet our researchers",
+    "highlightsTitle": "Research priorities",
+    "highlights": [
+      {
+        "value": "05",
+        "label": "Active research labs",
+        "description": "Guided by faculty mentors across AI, data, cybersecurity and software engineering."
+      },
+      {
+        "value": "—",
+        "label": "Scientific projects",
+        "description": "Interdisciplinary work connecting SIT teams with cross-campus partners."
+      },
+      {
+        "value": "—",
+        "label": "Scientific publications",
+        "description": "Published research is updated directly from SIT's research archive."
+      },
+      {
+        "value": "30+",
+        "label": "Student researchers",
+        "description": "Undergraduates gaining experience through faculty-led research cohorts."
+      }
+    ],
+    "researchAreas": "Research Areas",
+    "areas": [
+      {
+        "title": "Artificial Intelligence & Machine Learning",
+        "description": "Developing intelligent systems and algorithms for various applications",
+        "projects": [
+          "Ancient8 Builder Jam projects",
+          "Computer Vision",
+          "Natural Language Processing",
+          "Robotics"
+        ]
+      },
+      {
+        "title": "Data Science & Analytics",
+        "description": "Extracting insights from complex data sets to drive decision-making",
+        "projects": [
+          "Bioinformatics",
+          "Business Analytics",
+          "Predictive Analytics",
+          "Data Visualisation"
+        ]
+      },
+      {
+        "title": "Cybersecurity",
+        "description": "Protecting digital assets and ensuring information security",
+        "projects": [
+          "Network Security",
+          "Cryptography",
+          "Digital Forensics",
+          "Security Protocols"
+        ]
+      },
+      {
+        "title": "Software Engineering",
+        "description": "Designing and developing robust software systems",
+        "projects": [
+          "Software Architecture",
+          "Mobile Development",
+          "Web Technologies",
+          "Cloud Computing"
+        ]
+      }
+    ],
+    "publications": "Featured Updates",
+    "publicationsList": [
+      {
+        "title": "Workshop “Getting started with Web3 App development”",
+        "authors": "SIT & MetaCyber8",
+        "journal": "SIT News",
+        "year": "2024"
+      },
+      {
+        "title": "Partnership with Simpson Strong-Tie Vietnam",
+        "authors": "School of Information Technology",
+        "journal": "SIT News",
+        "year": "2024"
+      }
+    ],
+    "collaborations": "Industry Collaborations",
+    "collaborationList": [
+      "MetaCyber8",
+      "Ancient8",
+      "Simpson Strong-Tie Vietnam",
+      "MAAZ AI – FPT Automotive",
+      "Tan Tao University ecosystem"
+    ],
+    "impactTitle": "Innovation in action",
+    "impactDescription": "SIT blends liberal arts foundations with applied research to deliver solutions for the digital future.",
+    "impactCards": [
+      {
+        "title": "Human-centred AI",
+        "description": "Building ethical, explainable AI guided by community impact."
+      },
+      {
+        "title": "Data for health & sustainability",
+        "description": "Using analytics to advance healthcare, smart agriculture and environmental monitoring."
+      },
+      {
+        "title": "Secure digital infrastructure",
+        "description": "Developing resilient systems that protect data, people and organisations."
+      }
+    ],
+    "ctaTitle": "Partner with SIT researchers",
+    "ctaDescription": "Connect with our teams to co-develop projects, mentor students or support innovation challenges.",
+    "ctaPrimary": "Propose a collaboration",
+    "ctaSecondary": "Download research highlights"
+  },
+  "researchProjects": {
+    "badge": "Scientific projects",
+    "title": "Strategic research initiatives",
+    "subtitle": "Discover faculty-led projects that empower SIT students to shape Vietnam's digital future.",
+    "labels": {
+      "totalProjects": "Total Projects",
+      "ongoing": "Ongoing",
+      "completed": "Completed",
+      "statusOngoing": "Ongoing",
+      "statusCompleted": "Completed"
+    },
+    "filters": [
+      "AI & ML",
+      "Data Science",
+      "Cybersecurity",
+      "Software Engineering"
+    ],
+    "spotlight": {
+      "title": "Priority project streams",
+      "description": "We pair students with academics and industry mentors to deliver impactful prototypes and publications."
+    },
+    "projects": [
+      {
+        "title": "Explainable AI for medical diagnostics",
+        "leaders": "Lead: Dr. Nguyen Minh Chau",
+        "focus": "Focus area: AI & ML",
+        "summary": "Designing interpretable deep-learning pipelines that assist clinicians in identifying rare diseases from limited datasets.",
+        "timeline": "2024 – 2026",
+        "status": "Active",
+        "tags": [
+          "Healthcare",
+          "Computer Vision",
+          "Ethical AI"
+        ]
+      },
+      {
+        "title": "Bioinformatics platform for Mekong agriculture",
+        "leaders": "Lead: Dr. Tran Phuong Anh",
+        "focus": "Focus area: Data Science",
+        "summary": "Building bioinformatics workflows that monitor crop health, water quality and climate risks for farmers across the Mekong Delta.",
+        "timeline": "2023 – 2025",
+        "status": "Pilot deployment",
+        "tags": [
+          "AgriTech",
+          "Predictive Analytics",
+          "Sustainability"
+        ]
+      },
+      {
+        "title": "Zero-trust architecture for smart campuses",
+        "leaders": "Lead: MSc. Nguyen Thi Bao Tran",
+        "focus": "Focus area: Cybersecurity",
+        "summary": "Implementing micro-segmentation, identity governance and AI-driven monitoring to secure university infrastructure.",
+        "timeline": "2024 – 2025",
+        "status": "In progress",
+        "tags": [
+          "Security",
+          "Cloud",
+          "Policy"
+        ]
+      },
+      {
+        "title": "Adaptive learning analytics for SIT studios",
+        "leaders": "Lead: Dr. Hoang Quang Minh",
+        "focus": "Focus area: Software Engineering",
+        "summary": "Developing dashboards that visualise student engagement and personalise learning in studio-based courses.",
+        "timeline": "2022 – 2024",
+        "status": "Completed",
+        "tags": [
+          "EdTech",
+          "Data Visualisation",
+          "Product Design"
+        ]
+      },
+      {
+        "title": "Robotics for community healthcare",
+        "leaders": "Lead: SIT Robotics Collective",
+        "focus": "Focus area: AI & ML",
+        "summary": "Prototyping affordable robotic assistants that support rehabilitation and eldercare in rural clinics.",
+        "timeline": "2025 – ongoing",
+        "status": "Launching cohort",
+        "tags": [
+          "Robotics",
+          "Community",
+          "Prototyping"
+        ]
+      },
+      {
+        "title": "Blockchain credential ledger for universities",
+        "leaders": "Lead: SIT Web3 Lab",
+        "focus": "Focus area: Software Engineering",
+        "summary": "Collaborating with the Registrar's Office to issue secure digital credentials on a consortium blockchain.",
+        "timeline": "2024 – 2026",
+        "status": "Industry partnership",
+        "tags": [
+          "Web3",
+          "Governance",
+          "Innovation"
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Co-create the next research milestone",
+      "description": "We welcome partners to co-supervise student teams, provide datasets or pose real-world challenges.",
+      "primary": "Submit a project brief",
+      "secondary": "Join a discovery call"
+    }
+  },
+  "researchPublications": {
+    "badge": "Scientific publications",
+    "title": "Showcasing SIT scholarship",
+    "subtitle": "Peer-reviewed outputs, conference proceedings and industry whitepapers produced with our collaborators.",
+    "labels": {
+      "totalPublications": "Total Publications",
+      "thisYear": "This Year",
+      "journals": "Journals",
+      "recentPublications": "Recent Publications",
+      "viewDoi": "View DOI",
+      "viewDetails": "View Details",
+      "statusOngoing": "Ongoing",
+      "statusCompleted": "Completed"
+    },
+    "metrics": [
+      {
+        "value": "35+",
+        "label": "Publications since 2021"
+      },
+      {
+        "value": "12",
+        "label": "Indexed journals"
+      },
+      {
+        "value": "08",
+        "label": "International conferences"
+      }
+    ],
+    "sections": [
+      {
+        "title": "Journal articles",
+        "items": [
+          {
+            "title": "Federated learning with privacy budgets for medical imaging",
+            "authors": "Cao Tien Dung, Nguyen Minh Chau",
+            "where": "Journal of Medical Systems, 2024",
+            "linkLabel": "View abstract"
+          },
+          {
+            "title": "Explainable intrusion detection in hybrid cloud campuses",
+            "authors": "Nguyen Thi Bao Tran, Hoang Quang Minh",
+            "where": "IEEE Access, 2023",
+            "linkLabel": "Read summary"
+          }
+        ]
+      },
+      {
+        "title": "Conference papers",
+        "items": [
+          {
+            "title": "Digital twins for Mekong smart farming",
+            "authors": "Tran Phuong Anh et al.",
+            "where": "ICICT 2024, Ho Chi Minh City",
+            "linkLabel": "Download slides"
+          },
+          {
+            "title": "Low-cost assistive robotics for rehabilitation",
+            "authors": "SIT Robotics Collective",
+            "where": "ROBIO 2024, Singapore",
+            "linkLabel": "View poster"
+          }
+        ]
+      },
+      {
+        "title": "Industry & outreach",
+        "items": [
+          {
+            "title": "Cybersecurity readiness for manufacturing SMEs",
+            "authors": "SIT Cybersecurity Lab",
+            "where": "Whitepaper with Simpson Strong-Tie Vietnam, 2024",
+            "linkLabel": "Access report"
+          },
+          {
+            "title": "AI literacy training for rural schools",
+            "authors": "SIT Education Innovation Group",
+            "where": "Community workshop series, 2023",
+            "linkLabel": "View toolkit"
+          }
+        ]
+      }
+    ],
+    "cta": {
+      "title": "Collaborate on future publications",
+      "description": "Partner with SIT academics to co-author papers, share datasets or mentor student research groups.",
+      "primary": "Share a publication idea",
+      "secondary": "Request full bibliography"
+    }
+  },
+  "news": {
+    "title": "News & Events",
+    "subtitle": "Stay updated with SIT",
+    "description": "Official announcements, activities and achievements from the School of Information Technology.",
+    "latestNews": "Latest News",
+    "viewDetails": "View Details",
+    "viewAllNews": "View all news",
+    "newsroom": "SIT / Newsroom",
+    "featuredStory": "Featured story",
+    "browseByTopic": "Filter news by topic",
+    "allCategories": "All",
+    "noNews": "No matching stories are available yet.",
+    "breadcrumbLabel": "Breadcrumb",
+    "home": "Home",
+    "topicsEyebrow": "Browse the newsroom",
+    "topicsTitle": "News by topic",
+    "topicsDescription": "Scan the areas that matter to you without moving through another set of oversized story cards.",
+    "storyCount": "{count} stories",
+    "insightsEyebrow": "Across the SIT community",
+    "insightsTitle": "Research & achievements",
+    "insightsDescription": "A focused entry point to current research, academic publications and notable student work from SIT.",
+    "researchLabel": "Research",
+    "achievementsLabel": "Achievements",
+    "publicationLabel": "Publication",
+    "projectLabel": "Project",
+    "researchArchiveLabel": "Research archive",
+    "researchFallbackTitle": "Research projects and publications at SIT",
+    "researchFallbackDescription": "Explore the School's research areas, scientific projects and academic publications as they are added to the research archive.",
+    "achievementsFallbackTitle": "Student work worth following",
+    "achievementsFallbackDescription": "Follow academic achievements, competitions and notable projects by students at the School of Information Technology.",
+    "viewResearch": "Explore research",
+    "viewAchievements": "View student achievements",
+    "quickFeedEyebrow": "Continuous updates",
+    "quickFeedTitle": "News in brief",
+    "quickFeedDescription": "A compact index for scanning the latest announcements and stories from SIT.",
+    "officialChannel": "Official information channel",
+    "exploreSIT": "Explore more from SIT",
+    "exploreSITDescription": "Continue from the newsroom to explore academic programmes, research activities, student life and faculty profiles at the School of Information Technology.",
+    "exploreProgramsTitle": "Academic programmes",
+    "exploreProgramsDescription": "Explore majors, curriculum structures and the academic direction of SIT.",
+    "exploreResearchTitle": "Research at SIT",
+    "exploreResearchDescription": "Discover research areas, publications and academic activities across the School.",
+    "exploreStudentsTitle": "Student life",
+    "exploreStudentsDescription": "Follow student activities, learning experiences and available resources.",
+    "exploreFacultyTitle": "Faculty team",
+    "exploreFacultyDescription": "Learn about the expertise and profiles of SIT faculty members.",
+    "exploreLink": "Explore section",
+    "newsList": [
+      {
+        "title": "Meme Trade Co. team from SIT and SEB wins third prize at Ancient8 Builder Jam",
+        "date": "January 13, 2025",
+        "category": "Achievements",
+        "summary": "Tan Tao University congratulates the Meme Trade Co. team for earning third prize and a scholarship at the Ancient8 Builder Jam.",
+        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2025/01/473424504_1180055627459565_2810717273122808976_n-340x226.jpg"
+      },
+      {
+        "title": "Spring 2025 timetable for Year 2-4 students",
+        "date": "December 29, 2024",
+        "category": "Academics",
+        "summary": "The academic affairs office released the Spring 2025 timetable on the official SIT website for all returning undergraduates.",
+        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2018/03/books-2463779_1280-340x226.jpg"
+      },
+      {
+        "title": "Workshop “Getting started with Web3 App development”",
+        "date": "December 19, 2024",
+        "category": "Workshops",
+        "summary": "SIT and MetaCyber8 co-hosted a workshop to guide students through Ancient8 Chain development tools and hackathon preparation.",
+        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2024/12/470793824_987813683370530_7292304698480494764_n-340x226.jpg"
+      },
+      {
+        "title": "SIT students visit Simpson Strong-Tie Vietnam",
+        "date": "December 13, 2024",
+        "category": "Industry Partnership",
+        "summary": "Students experienced professional workflows during a company visit to Simpson Strong-Tie Vietnam, strengthening industry connections.",
+        "image": "https://sit.ttu.edu.vn/wp-content/uploads/2024/12/470148868_1088422436626890_8508387190436474761_n-1170x1170.jpg"
+      }
+    ],
+    "upcomingEvents": "Upcoming Events"
+  },
+  "achievements": {
+    "badge": "Highlights",
+    "title": "Milestones of SIT students",
+    "subtitle": "Awards and achievements recognizing the efforts of SIT students and faculty.",
+    "viewAll": "View all achievements",
+    "levels": {
+      "UNIVERSITY": "University",
+      "NATIONAL": "National",
+      "INTERNATIONAL": "International"
+    }
+  },
+  "footer": {
+    "quickLinks": "Quick Links",
+    "academicPrograms": "Academic Programs",
+    "contact": "Contact",
+    "links": [
+      "About",
+      "Programs",
+      "Admissions",
+      "Research",
+      "Students",
+      "Contact",
+      "FAQ"
+    ],
+    "programs": [
+      "Bachelor of Computer Science",
+      "Bachelor of Artificial Intelligence",
+      "Bachelor of Data Science",
+      "Master of Computer Science"
+    ],
+    "address": "Tan Tao University Avenue, Tan Duc E.City, Duc Hoa Commune, Tay Ninh Province",
+    "phone": "+84 272 376 9216",
+    "email": "sit@ttu.edu.vn",
+    "mission": "TTU is committed to providing high-quality education in IT with the \"Liberal Arts - Lifelong Learning\" philosophy.",
+    "copyright": "© 2026 School of Information Technology."
+  },
+  "contact": {
+    "eyebrow": "CONTACT",
+    "title": "Always ready to hear from you",
+    "lede": "Questions about admissions, programs, or student life? The School of Information Technology team replies during office hours.",
+    "officeHoursLabel": "Office hours",
+    "officeHours": "Monday – Friday, 08:00 – 17:00",
+    "addressLabel": "Address",
+    "phoneLabel": "Phone",
+    "emailLabel": "Email",
+    "mapCta": "Get directions",
+    "channelsTitle": "Choose how you'd like to reach us",
+    "channelAdmissions": {
+      "title": "Admissions questions",
+      "desc": "Tuition, scholarships, applications, enrollment dates.",
+      "cta": "Go to Admissions Portal"
+    },
+    "channelAcademic": {
+      "title": "Academic & course questions",
+      "desc": "Programs, academic advising, credit transfer.",
+      "cta": "Email the Faculty"
+    },
+    "channelFast": {
+      "title": "Need a fast answer",
+      "desc": "Message us on our Fanpage, the team replies same day.",
+      "cta": "Message us"
+    },
+    "faqTeaser": "Check the FAQ for quick answers before reaching out directly.",
+    "faqCta": "View FAQ"
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Frequently asked questions",
+    "lede": "The questions students and applicants ask most about the School of Information Technology. Can't find your answer? Contact the Faculty directly.",
+    "items": [
+      {
+        "q": "Which programs does the School of Information Technology offer?",
+        "a": "The Faculty offers a Bachelor of Computer Science, Bachelor of Artificial Intelligence, Bachelor of Data Science, a Software Engineering degree, and a Master of Computer Science. See details for each in the Programs section."
+      },
+      {
+        "q": "What about tuition and scholarships?",
+        "a": "TTU runs scholarship and tuition-reduction policies that vary by admissions cycle and apply to specific groups of applicants. Since rates can change between cycles, check the Admissions Portal for the latest terms or contact the Faculty directly."
+      },
+      {
+        "q": "Where do I submit my application?",
+        "a": "Undergraduate applications are submitted through Tan Tao University's Admissions Portal. The Faculty's admissions team is available to answer questions throughout the application process."
+      },
+      {
+        "q": "Can students take part in real research projects?",
+        "a": "Yes. Students can join labs, scientific projects, and faculty-led research starting from their first year. See ongoing projects and publications in the Research section."
+      },
+      {
+        "q": "Does the Faculty help with jobs and internships?",
+        "a": "Yes. The Internships & Careers page under Students lists internship openings, job postings, and partner-company connections."
+      },
+      {
+        "q": "Where can I find the student handbook?",
+        "a": "Student handbooks by academic year are published under Students → Student Handbook, including academic regulations and key dates."
+      },
+      {
+        "q": "How do I keep up with Faculty news and events?",
+        "a": "News, seminars, webinars, and competitions are posted regularly in the News section and shared on the Faculty's official Fanpage."
+      },
+      {
+        "q": "Who do I contact for a fast response?",
+        "a": "You can call, email, or message the Faculty on Messenger — full contact details and office hours are on the Contact page."
+      }
+    ],
+    "contactCta": "Still have questions? Contact the Faculty"
+  }
+}

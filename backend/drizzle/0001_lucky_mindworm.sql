@@ -1,0 +1,1 @@
+ALTER TABLE "curriculum" ALTER COLUMN "duration_years" SET DATA TYPE numeric(3, 1);

@@ -1,0 +1,12 @@
+packages:
+  - app
+  - backend
+  - dashboard
+
+onlyBuiltDependencies:
+  - msw
+  - sharp
+  - unrs-resolver
+
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'

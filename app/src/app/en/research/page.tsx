@@ -1,0 +1,15 @@
+import ResearchPageContent from "@/components/ResearchPageContent";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata = buildPageMetadata({
+  locale: "en",
+  title: "Information Technology Research | SIT - Tan Tao University",
+  description:
+    "Explore research areas, scientific projects and international publications from the School of Information Technology at Tan Tao University.",
+  path: "/en/research",
+  alternatePath: "/vi/nghien-cuu",
+});
+
+export default function ResearchPage() {
+  return <ResearchPageContent locale="en" />;
+}
