@@ -268,3 +268,92 @@ export const alumniFormSchema = z.object({
 });
 
 export type AlumniFormData = z.infer<typeof alumniFormSchema>;
+
+export const studentPortfolioFormSchema = z.object({
+  fullName: z.string().min(1, "Họ và tên là bắt buộc").max(255),
+  slug: z.string().min(1, "Slug là bắt buộc").max(255),
+  avatarUrl: z.string().url("URL không hợp lệ").optional().or(z.literal("")),
+  title: optionalString(255),
+  shortBio: optionalString(),
+  about: optionalString(),
+  program: optionalString(255),
+  studentYear: z.coerce
+    .number()
+    .min(1900, "Năm không hợp lệ")
+    .max(new Date().getFullYear() + 1, "Năm không hợp lệ")
+    .optional(),
+  location: optionalString(255),
+  isPublished: z.boolean().optional(),
+  skills: z
+    .array(
+      z.object({
+        category: optionalString(100),
+        name: z.string().min(1, "Tên kỹ năng là bắt buộc").max(100),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+  projects: z
+    .array(
+      z.object({
+        title: z.string().min(1, "Tên dự án là bắt buộc").max(255),
+        description: optionalString(),
+        imageUrl: z.string().url("URL không hợp lệ").optional().or(z.literal("")),
+        techStack: z.array(z.string()).optional(),
+        role: optionalString(255),
+        demoUrl: z.string().url("URL không hợp lệ").optional().or(z.literal("")),
+        repoUrl: z.string().url("URL không hợp lệ").optional().or(z.literal("")),
+        isFeatured: z.boolean().optional(),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+  experiences: z
+    .array(
+      z.object({
+        organization: z.string().min(1, "Tổ chức là bắt buộc").max(255),
+        role: z.string().min(1, "Vai trò là bắt buộc").max(255),
+        startDate: optionalString(20),
+        endDate: optionalString(20),
+        description: optionalString(),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+  education: z
+    .array(
+      z.object({
+        school: z.string().min(1, "Tên trường là bắt buộc").max(255),
+        degree: optionalString(100),
+        field: optionalString(255),
+        startYear: z.coerce.number().optional(),
+        endYear: z.coerce.number().optional(),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+  achievements: z
+    .array(
+      z.object({
+        title: z.string().min(1, "Tên thành tích là bắt buộc").max(255),
+        description: optionalString(),
+        year: z.coerce.number().optional(),
+        link: z.string().url("URL không hợp lệ").optional().or(z.literal("")),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+  contacts: z
+    .array(
+      z.object({
+        type: z.string().min(1, "Loại là bắt buộc").max(50),
+        value: z.string().min(1, "Giá trị là bắt buộc"),
+        displayOrder: z.coerce.number().optional(),
+      }),
+    )
+    .optional(),
+});
+
+export type StudentPortfolioFormData = z.infer<
+  typeof studentPortfolioFormSchema
+>;

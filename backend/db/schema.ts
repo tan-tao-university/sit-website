@@ -747,3 +747,189 @@ export const handbook = pgTable('handbook', {
   createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
   updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
 });
+
+// Student portfolio: one row per student, served at /[slug] on the public site.
+// Deliberately separate from the `alumni` tables — alumni are graduated and
+// verified by admins, portfolios are self-service and student-owned.
+export const studentPortfolio = pgTable('student_portfolio', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  slug: varchar('slug', { length: 255 }).unique().notNull(),
+
+  fullName: varchar('full_name', { length: 255 }).notNull(),
+  avatarUrl: text('avatar_url'),
+  title: varchar('title', { length: 255 }), // "Sinh viên Khoa học Máy tính"
+
+  shortBio: text('short_bio'), // hero tagline, 1-2 sentences
+  about: text('about'), // longer About section
+
+  program: varchar('program', { length: 255 }),
+  studentYear: integer('student_year'), // enrollment year, e.g. 2023
+  location: varchar('location', { length: 255 }),
+
+  isPublished: boolean('is_published').default(false),
+
+  createdAt: timestamp('created_at', { withTimezone: true }).defaultNow(),
+  updatedAt: timestamp('updated_at', { withTimezone: true }).defaultNow(),
+});
+
+export const studentPortfolioSkill = pgTable('student_portfolio_skill', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  portfolioId: uuid('portfolio_id')
+    .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+    .notNull(),
+
+  category: varchar('category', { length: 100 }), // "Programming Languages", "Frameworks"
+  name: varchar('name', { length: 100 }).notNull(),
+  displayOrder: integer('display_order').default(0),
+});
+
+export const studentPortfolioProject = pgTable('student_portfolio_project', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  portfolioId: uuid('portfolio_id')
+    .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+    .notNull(),
+
+  title: varchar('title', { length: 255 }).notNull(),
+  description: text('description'),
+  imageUrl: text('image_url'),
+  techStack: jsonb('tech_stack'), // string[]
+  role: varchar('role', { length: 255 }),
+  demoUrl: text('demo_url'),
+  repoUrl: text('repo_url'),
+
+  isFeatured: boolean('is_featured').default(false),
+  displayOrder: integer('display_order').default(0),
+});
+
+export const studentPortfolioExperience = pgTable(
+  'student_portfolio_experience',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    portfolioId: uuid('portfolio_id')
+      .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+      .notNull(),
+
+    organization: varchar('organization', { length: 255 }).notNull(),
+    role: varchar('role', { length: 255 }).notNull(),
+    startDate: varchar('start_date', { length: 20 }), // "2024-06"
+    endDate: varchar('end_date', { length: 20 }), // null = present
+    description: text('description'),
+    displayOrder: integer('display_order').default(0),
+  },
+);
+
+export const studentPortfolioEducation = pgTable(
+  'student_portfolio_education',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    portfolioId: uuid('portfolio_id')
+      .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+      .notNull(),
+
+    school: varchar('school', { length: 255 }).notNull(),
+    degree: varchar('degree', { length: 100 }),
+    field: varchar('field', { length: 255 }),
+    startYear: integer('start_year'),
+    endYear: integer('end_year'),
+    displayOrder: integer('display_order').default(0),
+  },
+);
+
+export const studentPortfolioAchievement = pgTable(
+  'student_portfolio_achievement',
+  {
+    id: uuid('id').primaryKey().defaultRandom(),
+    portfolioId: uuid('portfolio_id')
+      .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+      .notNull(),
+
+    title: varchar('title', { length: 255 }).notNull(),
+    description: text('description'),
+    year: integer('year'),
+    link: text('link'),
+    displayOrder: integer('display_order').default(0),
+  },
+);
+
+export const studentPortfolioContact = pgTable('student_portfolio_contact', {
+  id: uuid('id').primaryKey().defaultRandom(),
+  portfolioId: uuid('portfolio_id')
+    .references(() => studentPortfolio.id, { onDelete: 'cascade' })
+    .notNull(),
+
+  type: varchar('type', { length: 50 }).notNull(), // email | github | linkedin | website | facebook
+  value: text('value').notNull(),
+  displayOrder: integer('display_order').default(0),
+});
+
+export const studentPortfolioRelations = relations(
+  studentPortfolio,
+  ({ many }) => ({
+    skills: many(studentPortfolioSkill),
+    projects: many(studentPortfolioProject),
+    experiences: many(studentPortfolioExperience),
+    education: many(studentPortfolioEducation),
+    achievements: many(studentPortfolioAchievement),
+    contacts: many(studentPortfolioContact),
+  }),
+);
+
+export const studentPortfolioSkillRelations = relations(
+  studentPortfolioSkill,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioSkill.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);
+
+export const studentPortfolioProjectRelations = relations(
+  studentPortfolioProject,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioProject.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);
+
+export const studentPortfolioExperienceRelations = relations(
+  studentPortfolioExperience,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioExperience.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);
+
+export const studentPortfolioEducationRelations = relations(
+  studentPortfolioEducation,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioEducation.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);
+
+export const studentPortfolioAchievementRelations = relations(
+  studentPortfolioAchievement,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioAchievement.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);
+
+export const studentPortfolioContactRelations = relations(
+  studentPortfolioContact,
+  ({ one }) => ({
+    portfolio: one(studentPortfolio, {
+      fields: [studentPortfolioContact.portfolioId],
+      references: [studentPortfolio.id],
+    }),
+  }),
+);

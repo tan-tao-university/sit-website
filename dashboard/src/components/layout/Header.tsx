@@ -22,6 +22,7 @@ import {
   FileText,
   GraduationCap,
   Home,
+  IdCard,
   LogOut,
   Menu,
   Search,
@@ -50,6 +51,7 @@ const navGroups = [
       { label: "Người dùng", href: "/users", icon: Users },
       { label: "Giảng viên", href: "/faculty", icon: UserCog },
       { label: "Cựu sinh viên", href: "/alumni", icon: GraduationCap },
+      { label: "Portfolio sinh viên", href: "/student-portfolio", icon: IdCard },
     ],
   },
   {

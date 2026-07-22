@@ -5,7 +5,6 @@ import {
   IsOptional,
   IsInt,
   MaxLength,
-  IsUrl,
   ValidateNested,
   Min,
   Max,
@@ -19,6 +18,7 @@ import {
   CreateSectionMemberDto,
   CreateAlumniMetaDto,
 } from './create-related.dto';
+import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export class CreateAlumniDto {
   @ApiProperty({
@@ -48,7 +48,7 @@ export class CreateAlumniDto {
   })
   @IsString()
   @IsOptional()
-  @IsUrl()
+  @IsAppUrl()
   avatarUrl?: string;
 
   @ApiProperty({
