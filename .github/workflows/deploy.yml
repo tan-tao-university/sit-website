@@ -26,8 +26,6 @@ jobs:
     steps:
       - name: Deploy
         env:
-          # local-test clone nằm ở /tmp/sit-test trên mac; server ở /home/dev/dev/sit
           APP_DIR: ${{ github.event.inputs.runner_label == 'local-test' && '/tmp/sit-test' || '/home/dev/dev/sit' }}
-          # Repo private -> deploy.sh cần token này để `git fetch` qua HTTPS không bị hỏi username
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: "$APP_DIR/deploy.sh"
