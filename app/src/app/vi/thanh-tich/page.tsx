@@ -23,7 +23,6 @@ export async function generateMetadata() {
     path: "/vi/thanh-tich",
     alternatePath: "/en/achievements",
     image: featured?.coverImage,
-    socialLabel: "THÀNH TÍCH NỔI BẬT",
   });
 }
 

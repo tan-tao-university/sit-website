@@ -4,12 +4,7 @@ import { api, type News } from "@/lib/api";
 import { getCategoryDisplay } from "@/lib/news-categories";
 import { extractNewsText, getNewsImage } from "@/lib/news-content";
 import type { SiteLocale } from "@/lib/program-pages";
-import {
-  absoluteUrl,
-  localizedAlternates,
-  socialCardUrl,
-  truncateText,
-} from "@/lib/seo";
+import { absoluteUrl, localizedAlternates, truncateText } from "@/lib/seo";
 
 const SITE_URL = "https://sit.ttu.edu.vn";
 const PUBLISHER_NAME = "Khoa Công nghệ Thông tin - Đại học Tân Tạo";
@@ -37,13 +32,7 @@ export async function buildNewsDetailMetadata(
     const image = getNewsImage(news) || "/assets/banner-KT2.png";
     const siteName = locale === "vi" ? PUBLISHER_NAME : "School of Information Technology - Tan Tao University";
     const socialDescription = truncateText(description, 125);
-    const socialImage = socialCardUrl({
-      locale,
-      title: news.title,
-      description: socialDescription,
-      image,
-      label: getCategoryDisplay(news.category || "general", locale),
-    });
+    const socialImage = absoluteUrl(image);
 
     return {
       title: `${truncateText(news.title, 54)} | SIT`,
@@ -109,13 +98,7 @@ export default async function NewsDetailPageServer({
   const path = `${getNewsPath(locale)}/${news.slug}`;
   const articleText = news.contentText?.trim() || extractNewsText(news.content);
   const image = getNewsImage(news);
-  const socialImage = socialCardUrl({
-    locale,
-    title: news.title,
-    description: getDescription(news),
-    image: image || "/assets/banner-KT2.png",
-    label: getCategoryDisplay(news.category || "general", locale),
-  });
+  const socialImage = absoluteUrl(image || "/assets/banner-KT2.png");
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -131,7 +114,7 @@ export default async function NewsDetailPageServer({
     datePublished: news.publishedAt,
     dateModified: news.updatedAt,
     wordCount: articleText.split(/\s+/).filter(Boolean).length,
-    image: [socialImage, ...(image ? [absoluteUrl(image)] : [])],
+    image: [socialImage],
     isAccessibleForFree: true,
     author: {
       "@type": "Organization",

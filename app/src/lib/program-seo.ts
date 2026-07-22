@@ -86,8 +86,6 @@ export async function buildProgramMetadata(
       path: locale === "vi" ? viPath : enPath,
       alternatePath: locale === "vi" ? enPath : viPath,
       image: programImage(program),
-      socialLabel:
-        locale === "vi" ? "CHƯƠNG TRÌNH ĐÀO TẠO" : "ACADEMIC PROGRAM",
     });
   } catch {
     return unavailableMetadata(locale);
@@ -132,8 +130,6 @@ export async function buildCurriculumMetadata(
       path: locale === "vi" ? viPath : enPath,
       alternatePath: locale === "vi" ? enPath : viPath,
       image: curriculum.banner || programImage(curriculum.program),
-      socialLabel:
-        locale === "vi" ? "CHƯƠNG TRÌNH CHI TIẾT" : "CURRICULUM DETAILS",
     });
   } catch {
     return unavailableMetadata(locale);

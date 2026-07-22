@@ -27,7 +27,6 @@ export async function generateMetadata() {
     path: "/en/news",
     alternatePath: "/vi/tin-tuc",
     image: latest ? getNewsImage(latest) : undefined,
-    socialLabel: "NEWS & EVENTS",
   });
 }
 

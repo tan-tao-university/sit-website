@@ -23,7 +23,6 @@ export async function generateMetadata() {
     path: "/en/achievements",
     alternatePath: "/vi/thanh-tich",
     image: featured?.coverImage,
-    socialLabel: "FEATURED ACHIEVEMENTS",
   });
 }
 

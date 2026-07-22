@@ -18,7 +18,6 @@ export async function generateMetadata() {
     path: "/vi/chuong-trinh-dao-tao",
     alternatePath: "/en/programs",
     image: programs[0] ? programImage(programs[0]) : undefined,
-    socialLabel: "CHƯƠNG TRÌNH ĐÀO TẠO",
   });
 }
 
