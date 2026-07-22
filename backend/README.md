@@ -1,98 +1,93 @@
+<h1 align="center">SIT Backend</h1>
+<p align="center">API for the SIT Website &middot; School of Information Technology, Tan Tao University</p>
+
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <img src="https://img.shields.io/badge/NestJS-E0234E?style=for-the-badge&logo=nestjs&logoColor=white" alt="NestJS">
+  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Drizzle_ORM-C5F74F?style=for-the-badge&logo=drizzle&logoColor=black" alt="Drizzle ORM">
+  <img src="https://img.shields.io/badge/Jest-C21325?style=for-the-badge&logo=jest&logoColor=white" alt="Jest">
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+A NestJS API serving the public site and the admin dashboard: programs, courses, curricula, faculty, research, news, events, achievements, alumni, career opportunities, handbooks, and site-wide translations, backed by PostgreSQL via Drizzle ORM.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+See the root [README](../README.md) for the full workspace (public site, dashboard, backend together).
 
-## Description
+## Requirements
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+- Node.js >= 18
+- pnpm 10.13.1
+- PostgreSQL >= 13
 
-## Project setup
+## Setup
 
 ```bash
-$ pnpm install
+pnpm install
+cp .env.example .env
 ```
 
-## Compile and run the project
+Fill in `.env`:
+
+| Variable | Purpose |
+|---|---|
+| `DATABASE_URL` | PostgreSQL connection string |
+| `API_ACCESS_KEY_SHA256`, `JWT_ACCESS_SECRET` | generate both with `pnpm security:generate-secrets` |
+| `JWT_ACCESS_TTL_SECONDS`, `REFRESH_TOKEN_TTL_DAYS` | auth token lifetimes |
+| `UPLOAD_PUBLIC_URL`, `UPLOAD_TRUSTED_ORIGINS` | public base URL for `/uploads` files, plus any prior origins still referenced in stored URLs |
+| `ORIGIN` | extra CORS origins, comma-separated (`localhost:3000`/`4000` are always allowed) |
+| `PORT` | API port (default `8080`) |
+| `GOOGLE_API_KEY` | Gemini key used by the translation module |
+
+Push the schema and start the API:
 
 ```bash
-# development
-$ pnpm run start
-
-# watch mode
-$ pnpm run start:dev
-
-# production mode
-$ pnpm run start:prod
+pnpm db:push
+pnpm start:dev
 ```
 
-## Run tests
+The API listens on `http://localhost:8080`, prefixed at `/api/v1`; Swagger UI is served alongside it. Uploaded files are served statically at `/uploads`.
+
+## Commands
 
 ```bash
-# unit tests
-$ pnpm run test
+pnpm start:dev / start:debug / start:prod   # run the API
+pnpm build                                  # compile to dist/
+pnpm lint                                   # eslint --fix
+pnpm format                                 # prettier
 
-# e2e tests
-$ pnpm run test:e2e
+pnpm db:generate    # generate a Drizzle migration from schema changes
+pnpm db:migrate     # apply migrations
+pnpm db:push        # push schema changes directly (dev)
 
-# test coverage
-$ pnpm run test:cov
+pnpm test / test:watch / test:cov / test:e2e   # Jest unit + e2e tests
+
+pnpm users:create-admin   # create an admin user
+pnpm users:clear          # wipe users (dev only)
+
+pnpm security:generate-secrets   # generate API_ACCESS_KEY_SHA256 + JWT_ACCESS_SECRET
 ```
 
-## Deployment
+## Uploaded-file garbage collection
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Files are cleaned up automatically when the record referencing them is updated or deleted, as long as no other row still points at them. For uploads abandoned before a form was ever saved, run the collector periodically:
 
 ```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
+pnpm build
+pnpm uploads:gc -- --min-age-hours=24            # dry run
+pnpm uploads:gc -- --min-age-hours=24 --apply    # delete listed files
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Always inspect the dry-run output before adding `--apply`.
 
-## Resources
+## Modules
 
-Check out a few resources that may come in handy when working with NestJS:
+`achievement`, `alumni`, `auth`, `career-opportunity`, `course`, `curriculum`, `event`, `faculty`, `handbook`, `news`, `popup-banner`, `program`, `research`, `search`, `section`, `translation`, `upload` — each a self-contained NestJS module under `src/`, plus `common/` for shared guards, pipes, and utilities.
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+## Documentation
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- [API design](docs/API_DESIGN.md)
+- [Database design](docs/DATABASE_DESIGN.md)
 
 ## License
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+MIT — see the root [LICENSE](../LICENSE).
