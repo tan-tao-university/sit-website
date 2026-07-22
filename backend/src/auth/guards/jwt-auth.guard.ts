@@ -5,7 +5,7 @@ import {
   UnauthorizedException,
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { AccessTokenPayload } from '../auth.types';
+import { AccessTokenPayload, AuthenticatedRequest } from '../auth.types';
 import { AuthService } from '../auth.service';
 
 @Injectable()
@@ -16,7 +16,7 @@ export class JwtAuthGuard implements CanActivate {
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<AuthenticatedRequest>();
     const token = this.extractBearerToken(request.headers.authorization);
 
     if (!token) {
@@ -24,9 +24,8 @@ export class JwtAuthGuard implements CanActivate {
     }
 
     try {
-      const payload = await this.jwtService.verifyAsync<AccessTokenPayload>(
-        token,
-      );
+      const payload =
+        await this.jwtService.verifyAsync<AccessTokenPayload>(token);
 
       if (payload.type !== 'access' || !payload.sub) {
         throw new UnauthorizedException('Invalid access token');

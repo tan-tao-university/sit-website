@@ -8,7 +8,10 @@ import { alumniSection } from '../../db/schema';
 import { eq, asc, and, ne } from 'drizzle-orm';
 import { CreateAlumniSectionDto } from './dto/create-alumni-section.dto';
 import { UpdateAlumniSectionDto } from './dto/update-alumni-section.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 
 @Injectable()
@@ -57,7 +60,7 @@ export class AlumniSectionService {
         .returning();
       return newSection;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -131,7 +134,7 @@ export class AlumniSectionService {
 
       return updated;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,

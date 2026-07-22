@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { createHash, timingSafeEqual } from 'crypto';
+import { Request } from 'express';
 
 @Injectable()
 export class ApiKeyGuard implements CanActivate {
@@ -25,7 +26,7 @@ export class ApiKeyGuard implements CanActivate {
   }
 
   canActivate(context: ExecutionContext): boolean {
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<Request>();
     const providedKey = request.headers['x-api-key'];
 
     if (typeof providedKey !== 'string') {

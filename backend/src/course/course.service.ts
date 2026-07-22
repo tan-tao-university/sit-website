@@ -8,7 +8,10 @@ import * as schema from '../../db/schema';
 import { eq, desc, and, ne } from 'drizzle-orm';
 import { CreateCourseDto } from './dto/create-course.dto';
 import { UpdateCourseDto } from './dto/update-course.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 
 @Injectable()
@@ -112,7 +115,7 @@ export class CourseService {
         .returning();
       return course[0];
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -144,7 +147,7 @@ export class CourseService {
   }
 
   async update(id: string, updateCourseDto: UpdateCourseDto) {
-    const existingCourse = await this.findOne(id);
+    await this.findOne(id);
 
     // Check for duplicates before attempting update (excluding current record)
     if (Object.keys(updateCourseDto).length > 0) {
@@ -175,7 +178,7 @@ export class CourseService {
 
       return updatedCourse[0];
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -189,7 +192,7 @@ export class CourseService {
   }
 
   async remove(id: string) {
-    const existingCourse = await this.findOne(id);
+    await this.findOne(id);
 
     await db.delete(schema.course).where(eq(schema.course.courseId, id));
   }

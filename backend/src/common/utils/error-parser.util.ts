@@ -10,12 +10,31 @@ interface ParsedDatabaseError {
   message: string;
 }
 
+export interface PgDatabaseError {
+  code?: string;
+  constraint?: string;
+  detail?: string;
+}
+
+/**
+ * Narrows an unknown catch value to a PostgreSQL unique-violation error (code 23505).
+ */
+export function isPgUniqueViolation(error: unknown): error is PgDatabaseError {
+  return (
+    typeof error === 'object' &&
+    error !== null &&
+    (error as PgDatabaseError).code === '23505'
+  );
+}
+
 /**
  * Parse PostgreSQL unique constraint violation error
  * @param error - The database error object
  * @returns Parsed error information with field details
  */
-export function parseDuplicateKeyError(error: any): ParsedDatabaseError {
+export function parseDuplicateKeyError(
+  error: PgDatabaseError,
+): ParsedDatabaseError {
   const constraint = error.constraint || '';
   const detail = error.detail || '';
 
@@ -74,7 +93,7 @@ export function parseDuplicateKeyError(error: any): ParsedDatabaseError {
  * @returns Camel case string
  */
 function snakeToCamel(str: string): string {
-  return str.replace(/_([a-z])/g, (_, letter) => letter.toUpperCase());
+  return str.replace(/_([a-z])/g, (_, letter: string) => letter.toUpperCase());
 }
 
 /**

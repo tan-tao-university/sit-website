@@ -250,7 +250,9 @@ export class AuthService {
     return createHash('sha256').update(token).digest('hex');
   }
 
-  private toPublicUser(dbUser: any) {
+  private toPublicUser(
+    dbUser: typeof user.$inferSelect & { roles?: { role: string }[] },
+  ) {
     const { passwordHash, ...safeUser } = dbUser;
     return {
       ...safeUser,

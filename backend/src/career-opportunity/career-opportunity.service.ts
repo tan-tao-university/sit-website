@@ -101,9 +101,7 @@ export class CareerOpportunityService {
       .where(eq(careerOpportunity.id, id));
 
     if (!result) {
-      throw new NotFoundException(
-        `Career opportunity with ID ${id} not found`,
-      );
+      throw new NotFoundException(`Career opportunity with ID ${id} not found`);
     }
 
     return result;
@@ -111,7 +109,9 @@ export class CareerOpportunityService {
 
   async update(id: string, dto: UpdateCareerOpportunityDto) {
     const existing = await this.findOneAdmin(id);
-    const nextStatus = dto.status ?? existing.status;
+    // `status` is stored as varchar, but is only ever written from this enum.
+    const nextStatus = (dto.status ??
+      existing.status) as CareerOpportunityStatus;
 
     const [updated] = await db
       .update(careerOpportunity)
@@ -141,9 +141,7 @@ export class CareerOpportunityService {
       .returning({ id: careerOpportunity.id });
 
     if (!deleted) {
-      throw new NotFoundException(
-        `Career opportunity with ID ${id} not found`,
-      );
+      throw new NotFoundException(`Career opportunity with ID ${id} not found`);
     }
 
     return { message: 'Career opportunity deleted successfully' };

@@ -47,7 +47,8 @@ export class AuthController {
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
     summary: 'Sign in with email and password',
-    description: 'Returns a short-lived access token and a rotating refresh token.',
+    description:
+      'Returns a short-lived access token and a rotating refresh token.',
   })
   @ApiResponse({
     status: 200,
@@ -139,7 +140,8 @@ export class UsersController {
   @Post()
   @ApiOperation({
     summary: 'Create user (Admin only)',
-    description: 'Creates a local email/password user with a scrypt password hash',
+    description:
+      'Creates a local email/password user with a scrypt password hash',
   })
   @ApiResponse({
     status: 201,
