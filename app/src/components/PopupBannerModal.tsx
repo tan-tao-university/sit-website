@@ -6,7 +6,7 @@ import { X } from "lucide-react";
 import { api, type PopupBanner } from "@/lib/api";
 
 const DISMISSED_BANNER_KEY = "sit-dismissed-popup-banner";
-// ponytail: localStorage so a closed banner stays closed across visits, not just the tab session
+// ponytail: sessionStorage so a closed banner stays closed only for the current tab session
 
 export default function PopupBannerModal() {
   const pathname = usePathname();
@@ -23,7 +23,7 @@ export default function PopupBannerModal() {
         if (!active || !result) return;
 
         try {
-          if (localStorage.getItem(DISMISSED_BANNER_KEY) === result.id) {
+          if (sessionStorage.getItem(DISMISSED_BANNER_KEY) === result.id) {
             return;
           }
         } catch {
@@ -45,7 +45,7 @@ export default function PopupBannerModal() {
   const dismissBanner = useCallback(() => {
     if (banner) {
       try {
-        localStorage.setItem(DISMISSED_BANNER_KEY, banner.id);
+        sessionStorage.setItem(DISMISSED_BANNER_KEY, banner.id);
       } catch {
         // Closing the modal must still work when browser storage is unavailable.
       }
