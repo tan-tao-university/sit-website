@@ -4,9 +4,14 @@ import { IsIn, IsOptional, IsString, Matches } from 'class-validator';
 const SCHOOL_YEAR_REGEX = /^\d{4}-\d{4}$/;
 
 export class CreateHandbookDto {
-  @ApiProperty({ example: '2023-2024', description: 'School year, format YYYY-YYYY' })
+  @ApiProperty({
+    example: '2023-2024',
+    description: 'School year, format YYYY-YYYY',
+  })
   @IsString()
-  @Matches(SCHOOL_YEAR_REGEX, { message: 'schoolYear must be in the format YYYY-YYYY' })
+  @Matches(SCHOOL_YEAR_REGEX, {
+    message: 'schoolYear must be in the format YYYY-YYYY',
+  })
   schoolYear: string;
 
   @ApiPropertyOptional({ enum: ['draft', 'published'], default: 'draft' })
@@ -37,7 +42,9 @@ export class UpdateHandbookDto {
   @ApiPropertyOptional({ example: '2023-2024' })
   @IsOptional()
   @IsString()
-  @Matches(SCHOOL_YEAR_REGEX, { message: 'schoolYear must be in the format YYYY-YYYY' })
+  @Matches(SCHOOL_YEAR_REGEX, {
+    message: 'schoolYear must be in the format YYYY-YYYY',
+  })
   schoolYear?: string;
 
   @ApiPropertyOptional({ enum: ['draft', 'published'] })

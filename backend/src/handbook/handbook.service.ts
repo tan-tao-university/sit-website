@@ -7,7 +7,10 @@ import { db } from '../../db';
 import { handbook } from '../../db/schema';
 import { eq, desc } from 'drizzle-orm';
 import { CreateHandbookDto, UpdateHandbookDto } from './dto/handbook.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
 @Injectable()
@@ -19,7 +22,7 @@ export class HandbookService {
       const [row] = await db.insert(handbook).values(data).returning();
       return row;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsed = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: 'Năm học này đã tồn tại.',
@@ -81,7 +84,7 @@ export class HandbookService {
       await this.uploadCleanup.cleanupReplaced(existing, row);
       return row;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsed = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: 'Năm học này đã tồn tại.',

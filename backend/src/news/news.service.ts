@@ -4,15 +4,13 @@ import {
   ConflictException,
 } from '@nestjs/common';
 import { db } from '../../db';
-import {
-  news,
-  newsTranslation,
-  newsCategoryMap,
-  newsCategory,
-} from '../../db/schema';
+import { news } from '../../db/schema';
 import { eq, desc, and, ne } from 'drizzle-orm';
 import { CreateNewsDto, UpdateNewsDto } from './dto/news.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
@@ -20,6 +18,10 @@ type YooptaBlock = {
   type: string;
   value?: { text?: string }[];
   children?: YooptaBlock[]; // Handle potential nested structures if any
+};
+
+type YooptaContent = {
+  blocks?: Record<string, YooptaBlock> | YooptaBlock[];
 };
 
 @Injectable()
@@ -54,7 +56,7 @@ export class NewsService {
     return duplicateFields;
   }
 
-  yooptaToPlainText(content: any): string {
+  yooptaToPlainText(content: YooptaContent | null | undefined): string {
     if (!content?.blocks) return '';
 
     // Handle both array and object formats for blocks if necessary, though strictly it's usually an object in Yoopta
@@ -140,7 +142,7 @@ export class NewsService {
 
       return newNews;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -188,12 +190,11 @@ export class NewsService {
       });
 
       if (duplicates.length > 0) {
-        const field = duplicates[0];
         throw new ConflictException({
-          message: `Duplicate ${field} detected. This value already exists.`,
-          field,
-          constraint: `news_${field}_unique`,
-          value: data[field as keyof typeof data],
+          message: 'Duplicate slug detected. This value already exists.',
+          field: 'slug',
+          constraint: 'news_slug_unique',
+          value: data.slug,
         });
       }
     }
@@ -203,7 +204,7 @@ export class NewsService {
       : undefined;
 
     const { publishedAt, ...newsData } = data;
-    const updateData: any = {
+    const updateData: Partial<typeof news.$inferInsert> = {
       ...newsData,
       publishedAt: publishedAt
         ? new Date(publishedAt)
@@ -221,7 +222,7 @@ export class NewsService {
       await this.uploadCleanup.cleanupReplaced(existing, updatedNews);
       return updatedNews;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,

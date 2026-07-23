@@ -8,7 +8,10 @@ import { research } from '../../db/schema';
 import { eq, and, ne } from 'drizzle-orm';
 import { CreateResearchDto } from './dto/create-research.dto';
 import { UpdateResearchDto } from './dto/update-research.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
@@ -64,7 +67,7 @@ export class ResearchService {
 
       return newResearch;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -144,7 +147,7 @@ export class ResearchService {
       await this.uploadCleanup.cleanupReplaced(existing, updated);
       return updated;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,

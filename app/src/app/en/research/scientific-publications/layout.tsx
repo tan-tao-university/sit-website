@@ -7,6 +7,7 @@ export const metadata = buildPageMetadata({
     "Browse journal articles, conference papers and research publications from the School of Information Technology at Tan Tao University.",
   path: "/en/research/scientific-publications",
   alternatePath: "/vi/nghien-cuu/bai-bao-khoa-hoc",
+  image: "/assets/ttu/programs-technology-learning.jpg",
 });
 
 export default function ScientificPublicationsLayout({

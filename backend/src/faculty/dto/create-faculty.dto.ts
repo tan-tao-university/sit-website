@@ -5,7 +5,6 @@ import {
   IsOptional,
   IsBoolean,
   MaxLength,
-  IsUrl,
   ValidateNested,
   IsArray,
 } from 'class-validator';
@@ -18,6 +17,7 @@ import {
   CreateFacultyContactDto,
   CreateFacultyMetaDto,
 } from './create-related.dto';
+import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export class CreateFacultyDto {
   @ApiProperty({
@@ -47,7 +47,7 @@ export class CreateFacultyDto {
   })
   @IsString()
   @IsOptional()
-  @IsUrl()
+  @IsAppUrl()
   avatarUrl?: string;
 
   @ApiProperty({

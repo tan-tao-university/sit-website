@@ -1,5 +1,10 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { ApiOkResponse, ApiOperation, ApiQuery, ApiTags } from '@nestjs/swagger';
+import {
+  ApiOkResponse,
+  ApiOperation,
+  ApiQuery,
+  ApiTags,
+} from '@nestjs/swagger';
 import { ProgramService } from '../program/program.service';
 import { CurriculumService } from '../curriculum/curriculum.service';
 import { NewsService } from '../news/news.service';
@@ -34,7 +39,6 @@ export class SearchController {
 
     // 1. Programs
     const allPrograms = await this.programService.findAll();
-    // @ts-ignore
     const filteredPrograms = allPrograms.filter(
       (p) =>
         p.nameVi?.toLowerCase().includes(lowerQuery) ||

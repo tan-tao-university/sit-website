@@ -13,6 +13,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi/sinh-vien/so-tay",
   alternatePath: "/en/students/handbook",
+  image: "/assets/ttu/students-library-reading.jpg",
 });
 
 export default function StudentHandbookPage() {

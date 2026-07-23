@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/en/faq",
   alternatePath: "/vi/hoi-dap",
+  image: "/assets/meeting.png",
 });
 
 export default function FaqPage() {

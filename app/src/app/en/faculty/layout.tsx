@@ -21,7 +21,6 @@ export async function generateMetadata() {
       "Meet the faculty and researchers of the School of Information Technology at Tan Tao University and explore their academic expertise.",
     path: "/en/faculty",
     image: featured?.avatarUrl,
-    socialLabel: "FACULTY & RESEARCHERS",
   });
 }
 

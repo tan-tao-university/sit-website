@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Plus, MoreHorizontal, Pencil, Trash2, Search } from "lucide-react";
 
@@ -51,11 +51,7 @@ export default function FacultyPage() {
   const [isDeleting, setIsDeleting] = useState(false);
   const { toast } = useToast();
 
-  useEffect(() => {
-    fetchFaculty();
-  }, []);
-
-  async function fetchFaculty() {
+  const fetchFaculty = useCallback(async () => {
     try {
       setIsLoading(true);
       const data = await api.faculty.findAll();
@@ -70,7 +66,11 @@ export default function FacultyPage() {
     } finally {
       setIsLoading(false);
     }
-  }
+  }, [toast]);
+
+  useEffect(() => {
+    fetchFaculty();
+  }, [fetchFaculty]);
 
   async function handleDelete(id: string) {
     try {

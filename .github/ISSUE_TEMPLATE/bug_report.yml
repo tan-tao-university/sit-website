@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a bug in the public site, dashboard, or backend
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Where does the bug occur?
+      options:
+        - Public site (app)
+        - Dashboard
+        - Backend API
+        - Not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What did you expect, and what happened instead?
+      placeholder: When I clicked on ... it ... instead of ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See the error
+    validations:
+      required: true
+
+  - type: input
+    id: url
+    attributes:
+      label: URL / page
+      placeholder: https://sit.ttu.edu.vn/...
+    validations:
+      required: false
+
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Browser, OS, device (if relevant)
+      placeholder: Chrome 128 on macOS / iPhone Safari...
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / logs
+      description: Drag and drop images or paste error logs here
+    validations:
+      required: false

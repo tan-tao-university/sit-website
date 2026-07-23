@@ -8,7 +8,10 @@ import { curriculum, curriculumSection, program } from '../../db/schema';
 import { eq, and, ne } from 'drizzle-orm';
 import { CreateCurriculumDto } from './dto/create-curriculum.dto';
 import { UpdateCurriculumDto } from './dto/update-curriculum.dto';
-import { parseDuplicateKeyError } from '../common/utils/error-parser.util';
+import {
+  isPgUniqueViolation,
+  parseDuplicateKeyError,
+} from '../common/utils/error-parser.util';
 import { generateUniqueSlug } from '../common/utils/unique-slug.util';
 import { UploadCleanupService } from '../upload/upload-cleanup.service';
 
@@ -83,7 +86,7 @@ export class CurriculumService {
         .returning();
       return newCurriculum;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,
@@ -202,7 +205,7 @@ export class CurriculumService {
       await this.uploadCleanup.cleanupReplaced(existing, updated);
       return updated;
     } catch (error) {
-      if (error.code === '23505') {
+      if (isPgUniqueViolation(error)) {
         const parsedError = parseDuplicateKeyError(error);
         throw new ConflictException({
           message: parsedError.message,

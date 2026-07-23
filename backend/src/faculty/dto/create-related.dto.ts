@@ -4,9 +4,9 @@ import {
   IsOptional,
   IsInt,
   MaxLength,
-  IsUrl,
   IsUUID,
 } from 'class-validator';
+import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export class CreateAcademicTimelineDto {
   @ApiProperty({ required: false, description: 'Degree (PhD, MSc, BSc)' })
@@ -110,7 +110,7 @@ export class CreatePublicationDto {
   @ApiProperty({ required: false, description: 'Publisher URL' })
   @IsString()
   @IsOptional()
-  @IsUrl()
+  @IsAppUrl()
   publisherUrl?: string;
 
   @ApiProperty({ required: false, description: 'Display order' })

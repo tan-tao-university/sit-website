@@ -15,7 +15,7 @@ export interface CreateProgramDto {
   content: Record<string, unknown>;
 }
 
-export interface UpdateProgramDto extends Partial<CreateProgramDto> {}
+export type UpdateProgramDto = Partial<CreateProgramDto>;
 
 export interface Program extends CreateProgramDto {
   programId: string;
@@ -44,7 +44,7 @@ export interface CreateCurriculumDto {
   degreeAwarded?: string;
 }
 
-export interface UpdateCurriculumDto extends Partial<CreateCurriculumDto> {}
+export type UpdateCurriculumDto = Partial<CreateCurriculumDto>;
 
 export interface Curriculum extends CreateCurriculumDto {
   curriculumId: string;
@@ -74,7 +74,7 @@ export interface CreateSectionDto {
   isVisible?: boolean;
 }
 
-export interface UpdateSectionDto extends Partial<CreateSectionDto> {}
+export type UpdateSectionDto = Partial<CreateSectionDto>;
 
 export interface Section extends CreateSectionDto {
   sectionId: string;
@@ -122,7 +122,7 @@ export interface CreateCourseDto {
   practiceHours?: number;
 }
 
-export interface UpdateCourseDto extends Partial<CreateCourseDto> {}
+export type UpdateCourseDto = Partial<CreateCourseDto>;
 
 export interface Course extends CreateCourseDto {
   courseId: string;
@@ -315,7 +315,7 @@ export interface CreateNewsDto {
   publishedAt?: string;
 }
 
-export interface UpdateNewsDto extends Partial<CreateNewsDto> {}
+export type UpdateNewsDto = Partial<CreateNewsDto>;
 
 export interface News extends CreateNewsDto {
   id: string;
@@ -334,7 +334,7 @@ export interface CreateHandbookDto {
   pdfUrlEn?: string;
 }
 
-export interface UpdateHandbookDto extends Partial<CreateHandbookDto> {}
+export type UpdateHandbookDto = Partial<CreateHandbookDto>;
 
 export interface Handbook extends CreateHandbookDto {
   id: string;
@@ -1458,6 +1458,78 @@ export const api = {
       }
     },
   },
+  studentPortfolio: {
+    create: async (data: CreateStudentPortfolioDto): Promise<StudentPortfolio> => {
+      const response = await fetchWithAuth(`${API_URL}/student-portfolio`, {
+        method: "POST",
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(error.message || "Không thể tạo portfolio sinh viên");
+      }
+
+      return response.json();
+    },
+
+    findAll: async (): Promise<StudentPortfolio[]> => {
+      const response = await fetchWithAuth(
+        `${API_URL}/student-portfolio/admin/list`,
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch student portfolios");
+      }
+
+      return response.json();
+    },
+
+    findOne: async (id: string): Promise<StudentPortfolio> => {
+      const response = await fetchWithAuth(
+        `${API_URL}/student-portfolio/admin/${id}`,
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch student portfolio");
+      }
+
+      return response.json();
+    },
+
+    update: async (
+      id: string,
+      data: UpdateStudentPortfolioDto,
+    ): Promise<StudentPortfolio> => {
+      const response = await fetchWithAuth(
+        `${API_URL}/student-portfolio/${id}`,
+        {
+          method: "PUT",
+          body: JSON.stringify(data),
+        },
+      );
+
+      if (!response.ok) {
+        const error = await response.json();
+        throw new Error(
+          error.message || "Không thể cập nhật portfolio sinh viên",
+        );
+      }
+
+      return response.json();
+    },
+
+    remove: async (id: string): Promise<void> => {
+      const response = await fetchWithAuth(
+        `${API_URL}/student-portfolio/${id}`,
+        { method: "DELETE" },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to delete student portfolio");
+      }
+    },
+  },
 };
 
 export interface AlumniSection {
@@ -1499,7 +1571,7 @@ export interface CreateResearchDto {
   language?: ResearchLanguage;
 }
 
-export interface UpdateResearchDto extends Partial<CreateResearchDto> {}
+export type UpdateResearchDto = Partial<CreateResearchDto>;
 
 export interface Research extends CreateResearchDto {
   id: string;
@@ -1535,7 +1607,7 @@ export interface CreateAchievementDto {
   coverImage?: string;
 }
 
-export interface UpdateAchievementDto extends Partial<CreateAchievementDto> {}
+export type UpdateAchievementDto = Partial<CreateAchievementDto>;
 
 export interface Achievement extends CreateAchievementDto {
   id: string;
@@ -1555,7 +1627,7 @@ export interface CreateAlumniSectionDto {
   isActive?: boolean;
 }
 
-export interface UpdateAlumniSectionDto extends Partial<CreateAlumniSectionDto> {}
+export type UpdateAlumniSectionDto = Partial<CreateAlumniSectionDto>;
 
 export interface CreateAcademicProfileDto {
   major?: string;
@@ -1620,7 +1692,7 @@ export interface CreateAlumniDto {
   meta?: CreateAlumniMetaDto;
 }
 
-export interface UpdateAlumniDto extends Partial<CreateAlumniDto> {}
+export type UpdateAlumniDto = Partial<CreateAlumniDto>;
 
 export interface Alumni extends CreateAlumniDto {
   id: string;
@@ -1630,6 +1702,92 @@ export interface Alumni extends CreateAlumniDto {
   contacts?: CreateContactDto[];
   sectionMembers?: CreateSectionMemberDto[];
   meta?: CreateAlumniMetaDto;
+  createdAt: string;
+  updatedAt: string;
+}
+
+// --- Student Portfolio Types ---
+
+export interface CreateStudentPortfolioSkillDto {
+  category?: string;
+  name: string;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioProjectDto {
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  techStack?: string[];
+  role?: string;
+  demoUrl?: string;
+  repoUrl?: string;
+  isFeatured?: boolean;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioExperienceDto {
+  organization: string;
+  role: string;
+  startDate?: string;
+  endDate?: string;
+  description?: string;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioEducationDto {
+  school: string;
+  degree?: string;
+  field?: string;
+  startYear?: number;
+  endYear?: number;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioAchievementDto {
+  title: string;
+  description?: string;
+  year?: number;
+  link?: string;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioContactDto {
+  type: string;
+  value: string;
+  displayOrder?: number;
+}
+
+export interface CreateStudentPortfolioDto {
+  fullName: string;
+  slug: string;
+  avatarUrl?: string;
+  title?: string;
+  shortBio?: string;
+  about?: string;
+  program?: string;
+  studentYear?: number;
+  location?: string;
+  isPublished?: boolean;
+  skills?: CreateStudentPortfolioSkillDto[];
+  projects?: CreateStudentPortfolioProjectDto[];
+  experiences?: CreateStudentPortfolioExperienceDto[];
+  education?: CreateStudentPortfolioEducationDto[];
+  achievements?: CreateStudentPortfolioAchievementDto[];
+  contacts?: CreateStudentPortfolioContactDto[];
+}
+
+export type UpdateStudentPortfolioDto = Partial<CreateStudentPortfolioDto>;
+
+export interface StudentPortfolio extends CreateStudentPortfolioDto {
+  id: string;
+  isPublished: boolean;
+  skills?: (CreateStudentPortfolioSkillDto & { id: string })[];
+  projects?: (CreateStudentPortfolioProjectDto & { id: string })[];
+  experiences?: (CreateStudentPortfolioExperienceDto & { id: string })[];
+  education?: (CreateStudentPortfolioEducationDto & { id: string })[];
+  achievements?: (CreateStudentPortfolioAchievementDto & { id: string })[];
+  contacts?: (CreateStudentPortfolioContactDto & { id: string })[];
   createdAt: string;
   updatedAt: string;
 }
@@ -1696,7 +1854,7 @@ export interface CreateFacultyDto {
   meta?: CreateFacultyMetaDto;
 }
 
-export interface UpdateFacultyDto extends Partial<CreateFacultyDto> {}
+export type UpdateFacultyDto = Partial<CreateFacultyDto>;
 
 export interface Faculty extends CreateFacultyDto {
   id: string;

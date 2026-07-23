@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
@@ -32,7 +32,6 @@ import { FormLoading } from "@/components/shared/LoadingStates";
 import {
   api,
   AchievementType,
-  AchievementLevel,
   AchievementVisibility,
 } from "@/lib/api";
 import { Textarea } from "@/components/ui/textarea";
@@ -88,11 +87,7 @@ export default function EditAchievementPage() {
     },
   });
 
-  useEffect(() => {
-    loadAchievement();
-  }, []);
-
-  async function loadAchievement() {
+  const loadAchievement = useCallback(async () => {
     try {
       setIsFetching(true);
       const data = await api.achievements.findOne(params.id as string);
@@ -123,7 +118,11 @@ export default function EditAchievementPage() {
     } finally {
       setIsFetching(false);
     }
-  }
+  }, [params.id, form, router, toast]);
+
+  useEffect(() => {
+    loadAchievement();
+  }, [loadAchievement]);
 
   async function onSubmit(values: FormData) {
     const { id, update } = toast({

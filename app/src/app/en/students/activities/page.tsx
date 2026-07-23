@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/en/students/activities",
   alternatePath: "/vi/sinh-vien/hoat-dong",
+  image: "/assets/meeting.png",
 });
 
 export default function StudentActivitiesPage() {

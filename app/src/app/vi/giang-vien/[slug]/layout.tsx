@@ -45,7 +45,6 @@ export async function generateMetadata({ params }: LayoutProps): Promise<Metadat
       description: facultyDescription(faculty),
       path: `/vi/giang-vien/${faculty.slug}`,
       image: faculty.avatarUrl,
-      socialLabel: "GIẢNG VIÊN • SIT",
     });
   } catch {
     return {

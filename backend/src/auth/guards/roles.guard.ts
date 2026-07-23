@@ -6,6 +6,7 @@ import {
 } from '@nestjs/common';
 import { Reflector } from '@nestjs/core';
 import { AuthService } from '../auth.service';
+import { AuthenticatedRequest } from '../auth.types';
 
 /**
  * Guard to check if user has required roles
@@ -30,7 +31,7 @@ export class RolesGuard implements CanActivate {
       return true;
     }
 
-    const request = context.switchToHttp().getRequest();
+    const request = context.switchToHttp().getRequest<AuthenticatedRequest>();
     const user = request.user; // Set by JwtAuthGuard
 
     if (!user || !user.sub) {

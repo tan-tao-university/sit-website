@@ -70,6 +70,7 @@ export default function StudentsPageContent({ locale }: { locale: SiteLocale }) 
           activities: "Hoạt động",
           careers: "Việc làm & thực tập",
           alumni: "Cựu sinh viên",
+          portfolio: "Portfolio sinh viên",
           supportBadge: "Đồng hành cùng bạn",
           supportTitle: "Nguồn lực cho từng chặng đường",
           supportDescription:
@@ -91,6 +92,7 @@ export default function StudentsPageContent({ locale }: { locale: SiteLocale }) 
           activities: "Activities",
           careers: "Jobs & internships",
           alumni: "Alumni",
+          portfolio: "Student Portfolios",
           supportBadge: "Here for your journey",
           supportTitle: "Resources for every stage",
           supportDescription:
@@ -115,6 +117,7 @@ export default function StudentsPageContent({ locale }: { locale: SiteLocale }) 
     { label: copy.activities, href: `${basePath}/${locale === "vi" ? "hoat-dong" : "activities"}` },
     { label: copy.careers, href: `${basePath}/${locale === "vi" ? "viec-lam" : "jobs"}` },
     { label: copy.alumni, href: `${basePath}/${locale === "vi" ? "cuu-sinh-vien" : "alumni"}` },
+    { label: copy.portfolio, href: `${basePath}/portfolio` },
   ];
 
   const achievementItems = useMemo(
@@ -215,7 +218,7 @@ export default function StudentsPageContent({ locale }: { locale: SiteLocale }) 
           </motion.figure>
         </div>
 
-        <nav aria-label={copy.quickLinks} className="mx-auto grid max-w-7xl border-t border-[#d8d3ce] px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-4">
+        <nav aria-label={copy.quickLinks} className="mx-auto grid max-w-7xl border-t border-[#d8d3ce] px-5 sm:grid-cols-2 sm:px-8 lg:grid-cols-5">
           {quickLinks.map((item, index) => {
             const classes = `group relative isolate flex min-h-28 cursor-pointer items-center justify-between gap-5 overflow-hidden border-b border-[#d8d3ce] px-3 py-6 transition-colors duration-300 hover:bg-[#fbf6f2] focus-visible:bg-[#fbf6f2] focus-visible:outline-2 focus-visible:outline-offset-[-3px] focus-visible:outline-[#BA4811] sm:px-5 lg:border-b-0 lg:border-r ${index === 0 ? "sm:pl-5" : ""} ${index === quickLinks.length - 1 ? "lg:border-r-0" : ""}`;
             const content = (

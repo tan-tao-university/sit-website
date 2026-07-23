@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
     "Explore research areas, scientific projects and international publications from the School of Information Technology at Tan Tao University.",
   path: "/en/research",
   alternatePath: "/vi/nghien-cuu",
+  image: "/assets/ttu/programs-technology-learning.jpg",
 });
 
 export default function ResearchPage() {

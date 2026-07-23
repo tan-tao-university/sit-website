@@ -19,6 +19,7 @@ export const PATH_MAPPINGS: Record<string, string> = {
   "/sinh-vien/cuu-sinh-vien": "/students/alumni",
   "/tin-tuc": "/news",
   "/giang-vien": "/faculty",
+  "/sinh-vien/portfolio": "/students/portfolio",
 
   // English to Vietnamese (reverse mapping)
   "/about-us": "/gioi-thieu-chung",
@@ -34,6 +35,7 @@ export const PATH_MAPPINGS: Record<string, string> = {
   "/students/alumni": "/sinh-vien/cuu-sinh-vien",
   "/news": "/tin-tuc",
   "/faculty": "/giang-vien",
+  "/students/portfolio": "/sinh-vien/portfolio",
 };
 
 /**

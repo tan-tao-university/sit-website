@@ -22,7 +22,6 @@ export async function generateMetadata() {
     path: "/en/students/alumni",
     alternatePath: "/vi/sinh-vien/cuu-sinh-vien",
     image: featured?.avatarUrl,
-    socialLabel: "ALUMNI NETWORK",
   });
 }
 

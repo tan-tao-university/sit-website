@@ -22,7 +22,6 @@ export async function generateMetadata() {
     path: "/vi/sinh-vien/cuu-sinh-vien",
     alternatePath: "/en/students/alumni",
     image: featured?.avatarUrl,
-    socialLabel: "MẠNG LƯỚI CỰU SINH VIÊN",
   });
 }
 
