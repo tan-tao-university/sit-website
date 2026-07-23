@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 
 export const SITE_URL = "https://sit.ttu.edu.vn";
 export const DEFAULT_CONTENT_IMAGE = "/assets/banner-KT2.png";
-export const DEFAULT_SOCIAL_IMAGE = "/social-card";
 
 export type SeoLocale = "vi" | "en";
 
@@ -28,25 +27,6 @@ export const truncateText = (value: string, maxLength: number) => {
   return `${shortened.slice(0, lastSpace > maxLength / 2 ? lastSpace : undefined).trim()}…`;
 };
 
-export const socialCardUrl = ({
-  locale,
-  title,
-  description,
-  image = DEFAULT_CONTENT_IMAGE,
-  label,
-}: {
-  locale: SeoLocale;
-  title: string;
-  description?: string;
-  image?: string;
-  label?: string;
-}) => {
-  const params = new URLSearchParams({ locale, title, image });
-  if (description) params.set("description", truncateText(description, 125));
-  if (label) params.set("label", label);
-  return absoluteUrl(`${DEFAULT_SOCIAL_IMAGE}?${params}`);
-};
-
 export const localizedAlternates = (viPath: string, enPath: string) => ({
   "vi-VN": absoluteUrl(viPath),
   "en-US": absoluteUrl(enPath),
@@ -60,7 +40,6 @@ type PageMetadataOptions = {
   path: string;
   alternatePath?: string;
   image?: string;
-  socialLabel?: string;
 };
 
 export function buildPageMetadata({
@@ -70,17 +49,10 @@ export function buildPageMetadata({
   path,
   alternatePath,
   image = DEFAULT_CONTENT_IMAGE,
-  socialLabel,
 }: PageMetadataOptions): Metadata {
   const metaDescription = truncateText(description, 160);
   const socialDescription = truncateText(metaDescription, 125);
-  const imageUrl = socialCardUrl({
-    locale,
-    title,
-    description: socialDescription,
-    image,
-    label: socialLabel,
-  });
+  const imageUrl = absoluteUrl(image);
   const languages = alternatePath
     ? localizedAlternates(
         locale === "vi" ? path : alternatePath,

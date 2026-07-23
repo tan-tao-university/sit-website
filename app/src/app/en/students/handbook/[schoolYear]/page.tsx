@@ -16,6 +16,7 @@ export async function generateMetadata({
     description: `Official ${schoolYear} study, academic, project, research and student support handbook for the School of Information Technology at Tan Tao University.`,
     path: `/en/students/handbook/${schoolYear}`,
     alternatePath: `/vi/sinh-vien/so-tay/${schoolYear}`,
+    image: "/assets/ttu/students-library-reading.jpg",
   });
 }
 

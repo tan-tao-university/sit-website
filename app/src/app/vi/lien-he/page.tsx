@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi/lien-he",
   alternatePath: "/en/contact",
+  image: "/assets/banner-ttu.png",
 });
 
 export default function ContactPage() {

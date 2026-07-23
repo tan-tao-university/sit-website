@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono, Be_Vietnam_Pro } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { SITE_URL, socialCardUrl, truncateText } from "@/lib/seo";
+import { SITE_URL, absoluteUrl, truncateText } from "@/lib/seo";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -49,14 +49,9 @@ export const metadata: Metadata = {
     ),
     images: [
       {
-        url: socialCardUrl({
-          locale: "vi",
-          title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-          description:
-            "Đào tạo Công nghệ Thông tin, Khoa học Máy tính, Khoa học Dữ liệu và Trí tuệ nhân tạo gắn với thực hành, nghiên cứu.",
-        }),
+        url: absoluteUrl("/assets/logo-sit.png"),
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
       },
     ],
@@ -66,14 +61,7 @@ export const metadata: Metadata = {
     title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
     description:
       "Đào tạo Công nghệ Thông tin, Khoa học Máy tính, Khoa học Dữ liệu và Trí tuệ nhân tạo tại Đại học Tân Tạo.",
-    images: [
-      socialCardUrl({
-        locale: "vi",
-        title: "Khoa Công nghệ Thông tin - Đại học Tân Tạo",
-        description:
-          "Đào tạo Công nghệ Thông tin, Khoa học Máy tính, Khoa học Dữ liệu và Trí tuệ nhân tạo gắn với thực hành, nghiên cứu.",
-      }),
-    ],
+    images: [absoluteUrl("/assets/logo-sit.png")],
   },
   icons: {
     icon: [

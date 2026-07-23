@@ -18,7 +18,6 @@ export async function generateMetadata() {
     path: "/en/programs",
     alternatePath: "/vi/chuong-trinh-dao-tao",
     image: programs[0] ? programImage(programs[0]) : undefined,
-    socialLabel: "ACADEMIC PROGRAMS",
   });
 }
 

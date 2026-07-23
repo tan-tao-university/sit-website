@@ -685,6 +685,30 @@ export const api = {
       return response.json();
     },
   },
+  studentPortfolio: {
+    findAll: async (): Promise<StudentPortfolio[]> => {
+      const response = await fetchWithAuth(`${API_URL}/student-portfolio`);
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch student portfolios");
+      }
+
+      return response.json();
+    },
+
+    findBySlug: async (slug: string): Promise<StudentPortfolio> => {
+      const response = await fetchWithAuth(
+        `${API_URL}/student-portfolio/${slug}`,
+        { cache: "no-store" },
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch student portfolio");
+      }
+
+      return response.json();
+    },
+  },
 };
 
 // --- Faculty Types ---
@@ -854,6 +878,88 @@ export interface Alumni {
   contacts?: AlumniContact[];
   sectionMembers?: AlumniSectionMember[];
   meta?: AlumniMeta;
+
+  createdAt: string;
+  updatedAt: string;
+}
+
+// --- Student Portfolio Types ---
+
+export interface StudentPortfolioSkill {
+  id: string;
+  category?: string;
+  name: string;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolioProject {
+  id: string;
+  title: string;
+  description?: string;
+  imageUrl?: string;
+  techStack?: string[];
+  role?: string;
+  demoUrl?: string;
+  repoUrl?: string;
+  isFeatured?: boolean;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolioExperience {
+  id: string;
+  organization: string;
+  role: string;
+  startDate?: string;
+  endDate?: string;
+  description?: string;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolioEducation {
+  id: string;
+  school: string;
+  degree?: string;
+  field?: string;
+  startYear?: number;
+  endYear?: number;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolioAchievement {
+  id: string;
+  title: string;
+  description?: string;
+  year?: number;
+  link?: string;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolioContact {
+  id: string;
+  type: string;
+  value: string;
+  displayOrder?: number;
+}
+
+export interface StudentPortfolio {
+  id: string;
+  slug: string;
+  fullName: string;
+  avatarUrl?: string;
+  title?: string;
+  shortBio?: string;
+  about?: string;
+  program?: string;
+  studentYear?: number;
+  location?: string;
+  isPublished: boolean;
+
+  skills?: StudentPortfolioSkill[];
+  projects?: StudentPortfolioProject[];
+  experiences?: StudentPortfolioExperience[];
+  education?: StudentPortfolioEducation[];
+  achievements?: StudentPortfolioAchievement[];
+  contacts?: StudentPortfolioContact[];
 
   createdAt: string;
   updatedAt: string;

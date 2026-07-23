@@ -27,7 +27,6 @@ export async function generateMetadata() {
     path: "/vi/tin-tuc",
     alternatePath: "/en/news",
     image: latest ? getNewsImage(latest) : undefined,
-    socialLabel: "TIN TỨC & SỰ KIỆN",
   });
 }
 

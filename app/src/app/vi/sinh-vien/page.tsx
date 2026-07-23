@@ -8,6 +8,7 @@ export const metadata = buildPageMetadata({
     "Thông tin học tập, hoạt động, sổ tay, thực tập, việc làm và mạng lưới cựu sinh viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.",
   path: "/vi/sinh-vien",
   alternatePath: "/en/students",
+  image: "/assets/ttu/students-campus-learning.jpg",
 });
 
 export default function StudentsPage() {

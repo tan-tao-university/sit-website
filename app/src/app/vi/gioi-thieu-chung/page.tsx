@@ -11,6 +11,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi/gioi-thieu-chung",
   alternatePath: "/en/about-us",
+  image: "/assets/ttu/about-tan-tao-campus.jpg",
 });
 
 const aboutPageSchema = {

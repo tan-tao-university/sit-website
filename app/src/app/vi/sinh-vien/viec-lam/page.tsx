@@ -12,6 +12,7 @@ export const metadata = buildPageMetadata({
   description,
   path: "/vi/sinh-vien/viec-lam",
   alternatePath: "/en/students/jobs",
+  image: "/assets/ttu/programs-academic-partnership.jpg",
 });
 
 export default async function StudentJobsPage() {

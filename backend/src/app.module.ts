@@ -13,6 +13,7 @@ import { NewsModule } from './news/news.module';
 import { ResearchModule } from './research/research.module';
 import { AchievementModule } from './achievement/achievement.module';
 import { AlumniModule } from './alumni/alumni.module';
+import { StudentPortfolioModule } from './student-portfolio/student-portfolio.module';
 import { FacultyModule } from './faculty/faculty.module';
 import { EventModule } from './event/event.module';
 import { PopupBannerModule } from './popup-banner/popup-banner.module';
@@ -41,6 +42,7 @@ import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
     ResearchModule,
     AchievementModule,
     AlumniModule,
+    StudentPortfolioModule,
     FacultyModule,
     EventModule,
     PopupBannerModule,

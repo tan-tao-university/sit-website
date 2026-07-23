@@ -5,9 +5,9 @@ import {
   IsIn,
   IsOptional,
   IsString,
-  IsUrl,
   MinLength,
 } from 'class-validator';
+import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export class CreateUserDto {
   @ApiProperty({ example: 'admin@sit.edu.vn' })
@@ -59,7 +59,7 @@ export class UpdateUserDto {
   isActive?: boolean;
 
   @ApiPropertyOptional({ example: 'https://example.com/avatar.jpg' })
-  @IsUrl()
+  @IsAppUrl()
   @IsOptional()
   avatarUrl?: string;
 

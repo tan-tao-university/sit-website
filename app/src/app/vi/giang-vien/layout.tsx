@@ -21,7 +21,6 @@ export async function generateMetadata() {
       "Tìm hiểu học vị, chuyên môn, hướng nghiên cứu và công bố khoa học của đội ngũ giảng viên Khoa Công nghệ Thông tin, Đại học Tân Tạo.",
     path: "/vi/giang-vien",
     image: featured?.avatarUrl,
-    socialLabel: "ĐỘI NGŨ GIẢNG VIÊN",
   });
 }
 

@@ -15,6 +15,7 @@ import {
   PanelTopOpen,
   BookMarked,
   BriefcaseBusiness,
+  IdCard,
 } from "lucide-react";
 
 import { cn } from "@/lib/utils";
@@ -92,6 +93,11 @@ export function Sidebar() {
       label: "Cựu sinh viên", // Alumni
       icon: Users,
       href: "/alumni",
+    },
+    {
+      label: "Portfolio sinh viên", // Student portfolio
+      icon: IdCard,
+      href: "/student-portfolio",
     },
   ];
 

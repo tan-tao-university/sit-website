@@ -5,10 +5,10 @@ import {
   IsInt,
   IsEnum,
   MaxLength,
-  IsUrl,
 } from 'class-validator';
 import { Transform } from 'class-transformer';
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsAppUrl } from '../../common/decorators/is-app-url.decorator';
 
 export enum ResearchType {
   PROJECT = 'PROJECT',
@@ -124,9 +124,9 @@ export class CreateResearchDto {
 
   @ApiPropertyOptional({ description: 'PDF URL' })
   // Empty string means "clear the field" from the edit form — normalize it to
-  // null so @IsOptional() skips @IsUrl() instead of rejecting "" as an invalid URL.
+  // null so @IsOptional() skips @IsAppUrl() instead of rejecting "" as an invalid URL.
   @Transform(({ value }: { value: unknown }) => (value === '' ? null : value))
-  @IsUrl()
+  @IsAppUrl()
   @IsOptional()
   pdfUrl?: string;
 
