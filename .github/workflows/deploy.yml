@@ -28,4 +28,5 @@ jobs:
         env:
           APP_DIR: ${{ github.event.inputs.runner_label == 'local-test' && '/tmp/sit-test' || '/home/dev/dev/sit' }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PM2_HOME: ${{ github.event.inputs.runner_label == 'local-test' && '' || '/root/.pm2' }}
         run: "$APP_DIR/deploy.sh"
