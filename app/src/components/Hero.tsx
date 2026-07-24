@@ -84,14 +84,14 @@ const Hero = () => {
             {t("welcome")}
           </div>
 
-          <h1 className="max-w-[14ch] text-[2.35rem] font-bold leading-[1.06] tracking-[-0.04em] text-balance sm:text-[2.75rem] lg:text-[3.15rem] 2xl:text-[3.6rem]">
+          <h1 className="max-w-[14ch] text-[2.35rem] font-bold leading-[1.06] tracking-[-0.04em] text-balance sm:text-[2.75rem] lg:text-[3.15rem]">
             {t("title")}
             <span className="mt-1 block font-bold text-[#b74717]">
               {dynamicTexts[0]}
             </span>
           </h1>
 
-          <p className="mt-6 max-w-[36rem] text-sm leading-7 text-[#5f625f] sm:text-[0.95rem] 2xl:text-base 2xl:leading-8">
+          <p className="mt-6 max-w-[36rem] text-sm leading-7 text-[#5f625f] sm:text-[0.95rem]">
             {t("subtitle")}
           </p>
 

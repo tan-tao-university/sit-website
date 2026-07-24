@@ -248,6 +248,65 @@
 }
 
 /*
+ * Keep body copy readable across public pages on desktop while preserving
+ * intentionally compact mobile layouts and larger display typography.
+ */
+@media (min-width: 64rem) {
+  main :is(
+      .text-xs,
+      [class*="text-[0."],
+      [class*="text-[9px]"],
+      [class*="text-[10px]"],
+      [class*="text-[11px]"],
+      [class*="text-[12px]"],
+      [class*="text-[13px]"]
+    ) {
+    font-size: clamp(0.75rem, calc(0.55rem + 0.31vw), 0.8125rem);
+    line-height: 1.6;
+  }
+
+  main :is(
+      .text-sm,
+      [class*="text-[0.9"],
+      [class*="text-[14px]"],
+      [class*="text-[15px]"]
+    ) {
+    font-size: clamp(0.875rem, calc(0.68rem + 0.31vw), 0.9375rem);
+    line-height: 1.75;
+  }
+
+  main p:is(
+      .text-xs,
+      .text-sm,
+      [class*="text-[0."],
+      [class*="text-[9px]"],
+      [class*="text-[10px]"],
+      [class*="text-[11px]"],
+      [class*="text-[12px]"],
+      [class*="text-[13px]"],
+      [class*="text-[14px]"],
+      [class*="text-[15px]"]
+    ),
+  main
+    :is(
+      .text-xs,
+      .text-sm,
+      [class*="text-[0."],
+      [class*="text-[9px]"],
+      [class*="text-[10px]"],
+      [class*="text-[11px]"],
+      [class*="text-[12px]"],
+      [class*="text-[13px]"],
+      [class*="text-[14px]"],
+      [class*="text-[15px]"]
+    )
+    p {
+    font-size: clamp(0.875rem, calc(0.68rem + 0.31vw), 0.9375rem);
+    line-height: 1.75;
+  }
+}
+
+/*
  * Keep the current 80rem composition on regular laptops, then let shared
  * page shells use more of the viewport on large desktop displays. The hard
  * cap preserves readable line lengths on ultra-wide monitors.

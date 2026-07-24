@@ -124,7 +124,7 @@ const Achievements = () => {
                   </div>
 
                   <h3
-                    className={`mb-3 font-bold tracking-tight text-gray-900 ${
+                    className={`mb-3 line-clamp-3 font-bold tracking-tight text-gray-900 ${
                       isSingle
                         ? "max-w-2xl text-xl leading-snug sm:text-2xl"
                         : "text-[15px] leading-[1.42]"
@@ -133,17 +133,10 @@ const Achievements = () => {
                     {item.rank ? `${item.rank} — ${item.title}` : item.title}
                   </h3>
                   {item.projectName && (
-                    <p className="mb-5 text-[12px] leading-relaxed text-gray-500">
+                    <p className="line-clamp-2 text-[12px] leading-relaxed text-gray-500">
                       {item.projectName}
                     </p>
                   )}
-
-                  <div className="mt-auto space-y-2 border-t border-[#ebe6e1] pt-4 text-[11px] leading-relaxed text-gray-400">
-                    {item.studentNames && (
-                      <p className="line-clamp-2">{item.studentNames}</p>
-                    )}
-                    {item.organization && <p>{item.organization}</p>}
-                  </div>
                 </div>
               </motion.article>
             );
