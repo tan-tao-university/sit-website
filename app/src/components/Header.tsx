@@ -299,11 +299,11 @@ const Header = () => {
               className="h-10 w-10 shrink-0 object-contain transition-transform duration-300 group-hover:-rotate-2 sm:h-14 sm:w-12"
             />
             <div className="flex min-w-0 flex-col gap-y-0.5 whitespace-nowrap text-left">
-              <span className="block text-[0.58rem] font-black uppercase leading-tight tracking-[0.05em] text-[#ba4911] min-[380px]:text-[0.66rem] sm:text-sm sm:tracking-[0.1em]">
+              <span className="block text-[0.58rem] font-black uppercase leading-tight tracking-[0.05em] text-[#ba4911] min-[380px]:text-[0.66rem] sm:text-sm sm:tracking-[0.1em] xl:text-base">
                 {t("university")}
               </span>
               <span className="h-px w-full bg-[#ba4911]" />
-              <span className="block text-[0.56rem] font-black uppercase leading-tight tracking-[-0.01em] text-[#ba4911] min-[380px]:text-[0.62rem] sm:text-sm sm:tracking-normal">
+              <span className="block text-[0.56rem] font-black uppercase leading-tight tracking-[-0.01em] text-[#ba4911] min-[380px]:text-[0.62rem] sm:text-sm sm:tracking-normal xl:text-base">
                 {t("faculty")}
               </span>
             </div>
@@ -320,7 +320,7 @@ const Header = () => {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative py-2.5 text-[0.84rem] font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b74717] ${
+                  className={`relative py-2.5 text-sm font-semibold tracking-[-0.01em] transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#b74717] ${
                     isActive
                       ? "text-[#b74717]"
                       : "text-[#4b4d4b] hover:text-[#b74717]"
@@ -340,7 +340,7 @@ const Header = () => {
               href="https://tuyensinh.ttu.edu.vn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden min-h-10 items-center bg-[#ba4911] px-4 text-[0.68rem] font-bold uppercase tracking-[0.11em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ba4911] active:translate-y-0 md:inline-flex"
+              className="hidden min-h-10 items-center bg-[#ba4911] px-4 text-[0.8rem] font-bold uppercase tracking-[0.11em] text-white transition-[background-color,transform] duration-300 hover:-translate-y-0.5 hover:bg-[#96380d] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ba4911] active:translate-y-0 md:inline-flex"
             >
               {t("navigation.studentsAdmissions")}
             </a>
@@ -360,7 +360,7 @@ const Header = () => {
               className="order-1 inline-flex h-9 w-9 cursor-pointer items-center justify-center justify-self-start border border-[#ba4911]/25 text-[#8d3816] transition-colors hover:border-[#ba4911] hover:bg-[#ba4911] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#ba4911] sm:order-none sm:h-10 sm:w-auto sm:justify-self-auto sm:gap-2 sm:px-3"
             >
               <Menu className="h-4 w-4 sm:h-[1.1rem] sm:w-[1.1rem]" />
-              <span className="hidden text-[0.7rem] font-bold uppercase tracking-[0.12em] sm:inline">
+              <span className="hidden text-[0.8rem] font-bold uppercase tracking-[0.12em] sm:inline">
                 {t("menu")}
               </span>
             </button>
@@ -406,11 +406,11 @@ const Header = () => {
                       className="h-11 w-11 object-contain md:h-12 md:w-12"
                     />
                     <div className="min-w-0 text-left leading-none">
-                      <span className="block text-[0.7rem] font-black uppercase tracking-[0.1em] text-[#ba4911] sm:text-sm">
+                      <span className="block text-[0.7rem] font-black uppercase tracking-[0.1em] text-[#ba4911] sm:text-sm xl:text-base">
                         {t("university")}
                       </span>
                       <span className="my-0.5 block h-px w-full bg-[#ba4911]" />
-                      <span className="block text-[0.7rem] font-black uppercase text-[#ba4911] sm:text-sm">
+                      <span className="block text-[0.7rem] font-black uppercase text-[#ba4911] sm:text-sm xl:text-base">
                         {t("faculty")}
                       </span>
                     </div>
@@ -420,7 +420,7 @@ const Header = () => {
                     className="group flex h-10 cursor-pointer items-center gap-2.5 border border-[#171b25]/15 px-3 text-[#424640] transition-colors hover:border-[#b74717] hover:bg-[#b74717] hover:text-white active:scale-[0.98]"
                     aria-label={t("close")}
                   >
-                    <span className="text-[11px] font-bold uppercase tracking-[0.15em]">
+                    <span className="text-xs font-bold uppercase tracking-[0.15em] sm:text-sm">
                       {t("close")}
                     </span>
                     <X className="h-4 w-4 transition-transform duration-300 group-hover:rotate-90" />

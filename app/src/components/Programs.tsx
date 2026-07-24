@@ -25,6 +25,14 @@ type ProgramItem = {
   banner?: string;
 };
 
+const PROGRAM_ORDER: Record<string, number> = {
+  "undergraduate:KHMT": 0,
+  "undergraduate:TTNT": 1,
+  "undergraduate:KHDL": 2,
+  "undergraduate:CNTT": 3,
+  "postgraduate:KHMT": 4,
+};
+
 // ponytail: description from API is HTML; strip tags for the compact list view
 const stripHtml = (html: string) =>
   html
@@ -120,17 +128,23 @@ const Programs = () => {
     async function fetchPrograms() {
       try {
         const data = await api.programs.findAll({ status: "active" });
-        const formatted: ProgramItem[] = data.map((item) => ({
-          title: locale === "vi" ? item.nameVi : item.nameEn || item.nameVi,
-          code: item.code,
-          description:
-            locale === "vi"
-              ? item.descriptionVi || ""
-              : item.descriptionEn || item.descriptionVi || "",
-          slug: locale === "vi" ? item.slugVi : item.slugEn || item.slugVi,
-          level: item.level,
-          banner: item.banner,
-        }));
+        const formatted: ProgramItem[] = data
+          .map((item) => ({
+            title: locale === "vi" ? item.nameVi : item.nameEn || item.nameVi,
+            code: item.code,
+            description:
+              locale === "vi"
+                ? item.descriptionVi || ""
+                : item.descriptionEn || item.descriptionVi || "",
+            slug: locale === "vi" ? item.slugVi : item.slugEn || item.slugVi,
+            level: item.level,
+            banner: item.banner,
+          }))
+          .sort(
+            (a, b) =>
+              (PROGRAM_ORDER[`${a.level}:${a.code}`] ?? Number.MAX_SAFE_INTEGER) -
+              (PROGRAM_ORDER[`${b.level}:${b.code}`] ?? Number.MAX_SAFE_INTEGER),
+          );
         setPrograms(formatted.length > 0 ? formatted : getFallbackPrograms());
       } catch (error) {
         console.error("Failed to fetch programs", error);
