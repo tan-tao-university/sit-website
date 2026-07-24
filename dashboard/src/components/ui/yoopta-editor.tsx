@@ -90,6 +90,40 @@ export function YooptaEditorComponent({
   const editor = useMemo(() => createYooptaEditor(), []);
   const lastSeedRef = useRef<string | undefined>(undefined);
 
+  // ponytail: Yoopta's own paste handler only reads `text/html`. macOS apps put an
+  // <img> HTML flavor on the pasteboard alongside the bitmap, so Cmd+V works there;
+  // Windows screenshot tools (Snipping Tool, PrtScn) put a raw bitmap only, which
+  // arrives as clipboardData.files and Yoopta ignores it. Upload those ourselves.
+  const handlePasteCapture = async (event: React.ClipboardEvent) => {
+    if (readOnly) return;
+    const images = Array.from(event.clipboardData.files).filter((file) =>
+      file.type.startsWith("image/")
+    );
+    if (images.length === 0) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    let at = editor.path.current ?? undefined;
+    for (const file of images) {
+      try {
+        const { url } = await api.upload.image(file, "editor");
+        editor.commands.insertImage({
+          at,
+          focus: true,
+          props: {
+            src: url,
+            alt: file.name,
+            sizes: { width: 650, height: 500 },
+          },
+        });
+        if (at !== undefined) at += 1;
+      } catch (error) {
+        console.error("Failed to upload pasted image", error);
+      }
+    }
+  };
+
   useEffect(() => {
     if (!seedHtml || seedHtml === lastSeedRef.current) return;
     lastSeedRef.current = seedHtml;
@@ -103,7 +137,13 @@ export function YooptaEditorComponent({
   }, [seedHtml, editor, onChange]);
 
   return (
-    <div className={`yoopta-editor-container ${className || ""}`}>
+    // ponytail: pl-12 reserves the 46px strip Yoopta draws the ⊕/drag buttons in
+    // (left: blockRect.left, translateX(-46px)) so they land inside the card
+    // instead of over the page background, where they were near-invisible.
+    <div
+      className={`yoopta-editor-container pl-12 ${className || ""}`}
+      onPasteCapture={handlePasteCapture}
+    >
       <YooptaEditor
         editor={editor}
         plugins={plugins as any}
