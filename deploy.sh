@@ -33,9 +33,9 @@ pnpm build   # build cả backend + app + dashboard (root package.json)
 # ponytail: server dùng chung 1 pm2 daemon với nhiều app khác -> lọc bảng, chỉ in sit-*
 # ({ grep || true; } để grep không match cũng không làm fail pipeline vì pipefail)
 if command -v pm2 >/dev/null 2>&1; then
-  pm2 startOrReload ecosystem.config.js --update-env | { grep -vE '^[┌│├└]' || true; }
+  pm2 startOrReload ecosystem.config.js --update-env 2>&1 | { grep -vE '^[┌│├└]' || true; }
   pm2 save
-  pm2 list --no-color | { grep -E '│ name|sit-' || true; }
+  pm2 list --no-color 2>&1 | { grep -E '│ name|sit-' || true; }
 else
   echo "==> (bỏ qua pm2 — chưa cài, ok khi test build local)"
 fi
