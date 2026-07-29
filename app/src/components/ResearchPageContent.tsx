@@ -220,7 +220,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
             className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end lg:gap-20"
           >
             <div>
-              <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
+              <div className="flex items-center gap-4 text-xs font-semibold text-[#BA4811]">
                 <span className="h-px w-12 bg-current" />
                 {t("heroBadge")}
               </div>
@@ -248,7 +248,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
             </div>
 
             <aside className="border-t-2 border-[#171b25] pt-5">
-              <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <p className="text-sm font-semibold text-[#BA4811]">
                 {copy.index}
               </p>
               <div className="mt-5">
@@ -257,7 +257,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
                     key={area.title}
                     className="grid grid-cols-[2rem_1fr] gap-3 border-t border-[#d8d3ce] py-3.5 first:border-t-0"
                   >
-                    <span className="font-mono text-[0.58rem] text-[#BA4811]">
+                    <span className="text-xs font-semibold text-[#BA4811]">
                       {String(index + 1).padStart(2, "0")}
                     </span>
                     <span className="text-sm font-semibold leading-5">{area.title}</span>
@@ -286,7 +286,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-6 border-b-2 border-[#171b25] pb-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-end">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <p className="text-sm font-semibold text-[#BA4811]">
                 {t("researchAreas")}
               </p>
               <h2 className="mt-4 max-w-xl text-[2.25rem] font-bold leading-tight tracking-[-0.045em] sm:text-[3rem]">
@@ -306,19 +306,14 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
                 whileInView="visible"
                 variants={reveal}
                 viewport={{ once: true, margin: "-50px" }}
-                className={`border-b border-[#d2ccc6] py-9 lg:min-h-80 lg:p-10 ${index % 2 === 0 ? "lg:border-r" : ""}`}
+                className={`border-b border-[#d2ccc6] py-9 lg:min-h-72 lg:p-10 ${index % 2 === 0 ? "lg:border-r" : ""}`}
               >
-                <div className="flex items-start justify-between gap-6">
-                  <span className="text-[3.4rem] font-bold leading-none tracking-[-0.07em] text-[#d4cec7]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                  <span className="mt-2 h-px w-12 bg-[#BA4811]" />
-                </div>
-                <h3 className="mt-8 max-w-lg text-2xl font-bold leading-tight tracking-[-0.035em]">
+                <span className="block h-px w-12 bg-[#BA4811]" />
+                <h3 className="mt-10 max-w-lg text-2xl font-bold leading-tight tracking-[-0.035em]">
                   {area.title}
                 </h3>
                 <p className="mt-4 max-w-xl text-sm leading-7 text-[#686c67]">{area.description}</p>
-                <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 font-mono text-[0.6rem] uppercase tracking-[0.1em] text-[#777b76]">
+                <div className="mt-7 flex flex-wrap gap-x-5 gap-y-2 text-sm leading-6 text-[#777b76]">
                   {area.projects.map((project) => (
                     <span key={project}>{project}</span>
                   ))}
@@ -334,7 +329,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="grid gap-8 lg:grid-cols-[0.7fr_1.3fr] lg:gap-20">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">
+              <p className="text-sm font-semibold text-[#BA4811]">
                 {tProjects("spotlight.title")}
               </p>
               <h2 className="mt-5 max-w-md text-[2.25rem] font-bold leading-[1.05] tracking-[-0.045em] sm:text-[3rem]">
@@ -358,21 +353,30 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
               ) : projectItems.length === 0 ? (
                 <p className="border-b border-[#d8d3ce] py-10 text-sm text-[#686c67]">{copy.noProjects}</p>
               ) : (
-                projectItems.slice(0, 4).map((project, index) => (
-                  <article key={`${project.title}-${index}`} className="grid gap-4 border-b border-[#d8d3ce] py-7 sm:grid-cols-[3rem_1fr_7rem]">
-                    <span className="font-mono text-[0.64rem] font-semibold text-[#BA4811]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                projectItems.slice(0, 4).map((project) => (
+                  <article
+                    key={project.title}
+                    className="grid gap-5 border-b border-[#d8d3ce] py-7 sm:grid-cols-[minmax(0,1fr)_10rem] sm:gap-8"
+                  >
                     <div>
                       <h3 className="text-lg font-bold leading-snug tracking-[-0.025em] sm:text-xl">{project.title}</h3>
                       {project.summary && <p className="mt-3 line-clamp-2 text-sm leading-6 text-[#686c67]">{project.summary}</p>}
-                      <p className="mt-4 font-mono text-[0.58rem] uppercase tracking-[0.1em] text-[#858984]">
-                        {copy.lead}: {project.leaders} · {copy.field}: {project.focus}
-                      </p>
+                      <div className="mt-4 flex flex-wrap gap-x-6 gap-y-1 text-sm leading-6 text-[#70746f]">
+                        <p>
+                          <span className="font-medium text-[#4f544f]">{copy.lead}:</span>{" "}
+                          {project.leaders}
+                        </p>
+                        <p>
+                          <span className="font-medium text-[#4f544f]">{copy.field}:</span>{" "}
+                          {project.focus}
+                        </p>
+                      </div>
                     </div>
-                    <div className="font-mono text-[0.58rem] uppercase tracking-[0.1em] text-[#777b76] sm:text-right">
-                      <p>{project.timeline}</p>
-                      <p className="mt-2 text-[#BA4811]">{project.status}</p>
+                    <div className="text-sm leading-6 text-[#777b76] sm:text-right">
+                      <p className="whitespace-nowrap">{project.timeline}</p>
+                      <p className="mt-2 whitespace-nowrap font-medium text-[#BA4811]">
+                        {project.status}
+                      </p>
                     </div>
                   </article>
                 ))
@@ -387,7 +391,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
         <div className="mx-auto max-w-7xl px-5 sm:px-8">
           <div className="flex flex-col gap-6 border-b-2 border-[#171b25] pb-8 lg:flex-row lg:items-end lg:justify-between">
             <div>
-              <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.18em] text-[#BA4811]">{t("publications")}</p>
+              <p className="text-sm font-semibold text-[#BA4811]">{t("publications")}</p>
               <h2 className="mt-4 text-[2.25rem] font-bold leading-tight tracking-[-0.045em] sm:text-[3rem]">{copy.publications}</h2>
             </div>
             <p className="max-w-xl text-base leading-8 text-[#686c67]">{copy.publicationsDescription}</p>
@@ -403,12 +407,12 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
             ) : publicationItems.slice(0, 4).map((publication, index) => {
               const content = (
                 <>
-                  <span className="font-mono text-[0.64rem] font-semibold text-[#BA4811]">{String(index + 1).padStart(2, "0")}</span>
+                  <span className="text-sm font-semibold text-[#BA4811]">{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h3 className="text-lg font-bold leading-snug tracking-[-0.025em] transition-colors group-hover:text-[#BA4811] sm:text-xl">{publication.title}</h3>
                     <p className="mt-3 text-sm text-[#686c67]">{publication.authors}</p>
                   </div>
-                  <span className="font-mono text-[0.6rem] uppercase tracking-[0.1em] text-[#777b76] lg:text-right">{publication.where}</span>
+                  <span className="text-sm leading-6 text-[#777b76] lg:text-right">{publication.where}</span>
                   <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} className="justify-self-end text-[#BA4811]" />
                 </>
               );
@@ -430,7 +434,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
               {copy.viewPublications}
               <HugeiconsIcon icon={ArrowUpRight01Icon} size={17} />
             </Link>
-            <div className="flex flex-wrap items-center gap-x-7 gap-y-3 font-mono text-[0.58rem] uppercase tracking-[0.12em] text-[#777b76]">
+            <div className="flex flex-wrap items-center gap-x-7 gap-y-3 text-sm text-[#777b76]">
               <span className="text-[#BA4811]">{copy.partners}</span>
               {collaborations.slice(0, 4).map((partner) => <span key={partner}>{partner}</span>)}
             </div>
@@ -441,7 +445,7 @@ export default function ResearchPageContent({ locale }: { locale: SiteLocale }) 
       <section className="bg-white px-5 py-16 sm:px-8 sm:py-20">
         <div className="mx-auto flex max-w-7xl flex-col items-start gap-8 bg-[#BA4811] p-9 sm:p-12 lg:flex-row lg:items-center lg:justify-between">
           <div>
-            <p className="font-mono text-[0.62rem] uppercase tracking-[0.18em] text-white/70">{copy.researchers}</p>
+            <p className="text-sm text-white/70">{copy.researchers}</p>
             <h2 className="mt-4 max-w-2xl text-2xl font-bold tracking-[-0.035em] text-white sm:text-3xl">{t("ctaTitle")}</h2>
             <p className="mt-3 max-w-2xl text-sm leading-7 text-white/80">{t("ctaDescription")}</p>
           </div>

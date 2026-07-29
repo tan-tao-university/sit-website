@@ -16,7 +16,7 @@
       "students": "Sinh viên",
       "research": "Nghiên cứu",
       "news": "Tin tức",
-      "faculty": "Giảng viên",
+      "faculty": "Ban giảng huấn",
       "researchOverview": "Tổng quan nghiên cứu",
       "scientificProjects": "Đề tài khoa học",
       "scientificPublications": "Bài báo khoa học",
@@ -78,16 +78,16 @@
     "title": "Khám phá thế giới",
     "dynamicTexts": [
       "Công nghệ Thông tin",
-      "Trí tuệ Nhân tạo",
-      "Khoa học Dữ liệu",
-      "Kỹ thuật Phần mềm",
+      "Đào tạo gắn thực tiễn",
+      "Nghiên cứu ứng dụng",
+      "Hỗ trợ sinh viên",
       "Ứng dụng Web3",
       "Chuyển đổi số"
     ],
     "subtitle": "Khoa Công nghệ Thông tin TTU vận hành theo triết lí Khai phóng - Học suốt đời, trang bị cho sinh viên năng lực dẫn dắt chuyển đổi số Việt Nam.",
     "explore": "Khám phá ngay",
     "watchVideo": "Tìm hiểu về SIT",
-    "imageEyebrow": "Trải nghiệm học tập tại SIT",
+    "imageEyebrow": "Trải nghiệm học tập",
     "imageTitle": "Học qua dự án, trưởng thành qua trải nghiệm.",
     "imageDescription": "Kết nối nền tảng công nghệ, nghiên cứu và những bài toán thực tế."
   },
@@ -116,8 +116,8 @@
   "programs": {
     "badge": "Chương trình đào tạo",
     "title": "Các chương trình đào tạo",
-    "titleHighlight": "Các lộ trình Công nghệ Thông tin",
-    "subtitle": "Khoa Công nghệ Thông tin, Trường Đại học Tân Tạo đào tạo Khoa học Máy tính, Khoa học Dữ liệu, Trí tuệ nhân tạo và Công nghệ thông tin, kết hợp nền tảng chuyên môn với thực hành và nghiên cứu.",
+    "titleHighlight": "",
+    "subtitle": "Kết hợp nền tảng chuyên môn với thực hành và nghiên cứu.",
     "programsSubtitle": "Từ bậc đại học đến sau đại học, mỗi lộ trình được thiết kế để bạn làm chủ công nghệ và sẵn sàng cho nghề nghiệp tương lai.",
     "viewAll": "Xem tất cả chương trình",
     "viewDetails": "Xem chi tiết",
@@ -170,7 +170,7 @@
           {
             "label": "Địa điểm",
             "value": "Đại học Tân Tạo",
-            "description": "Khu đô thị Tân Đức, Long An"
+            "description": "Đại lộ Đại học Tân Tạo, Tân Đức E.City, Xã Đức Hòa, Tỉnh Tây Ninh"
           },
           {
             "label": "Thời lượng",
@@ -304,7 +304,7 @@
           },
           {
             "label": "Điều kiện tuyển sinh",
-            "value": "Tốt nghiệp THPT & phỏng vấn tuyển sinh SIT"
+            "value": "Tốt nghiệp THPT"
           },
           {
             "label": "Thời lượng",
@@ -837,7 +837,7 @@
       },
       {
         "title": "Tham quan Simpson Strong-Tie",
-        "description": "Sinh viên tìm hiểu quy trình kỹ thuật, an toàn và cơ hội nghề nghiệp tại Long An."
+        "description": "Sinh viên tìm hiểu quy trình kỹ thuật, an toàn và cơ hội nghề nghiệp tại Tây Ninh."
       },
       {
         "title": "Workshop Web3 mở đầu",

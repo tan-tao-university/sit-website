@@ -122,13 +122,12 @@ const Hero = () => {
             </Link>
           </div>
 
-          <div className="mt-9 flex flex-wrap gap-x-6 gap-y-2 border-t border-[#171b25]/15 pt-5">
-            {dynamicTexts.slice(1, 4).map((topic, index) => (
+          <div className="mt-9 grid gap-3 border-t border-[#171b25]/15 pt-5 sm:grid-cols-3">
+            {dynamicTexts.slice(1, 4).map((topic) => (
               <span
                 key={topic}
-                className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[#6f716c]"
+                className="border-l-2 border-[#b74717] pl-3 text-sm font-medium leading-6 text-[#5f625f]"
               >
-                <span className="mr-2 font-mono text-[#b74717]">0{index + 1}</span>
                 {topic}
               </span>
             ))}

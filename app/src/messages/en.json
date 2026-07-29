@@ -78,9 +78,9 @@
     "title": "Explore the world of",
     "dynamicTexts": [
       "Computer Science",
-      "Artificial Intelligence",
-      "Data Science",
-      "Software Engineering",
+      "Practical learning",
+      "Applied research",
+      "Student support",
       "Web3 Applications",
       "Digital Transformation"
     ],
@@ -170,7 +170,7 @@
           {
             "label": "Location",
             "value": "Tan Tao University",
-            "description": "Tan Duc E.City, Long An"
+            "description": "Tan Tao University Avenue, Tan Duc E.City, Duc Hoa Commune, Tay Ninh Province"
           },
           {
             "label": "Course duration",
@@ -837,7 +837,7 @@
       },
       {
         "title": "Simpson Strong-Tie industry immersion",
-        "description": "Learners explored engineering workflows, safety standards and career tracks at the Long An facility."
+        "description": "Learners explored engineering workflows, safety standards and career tracks at the Tay Ninh facility."
       },
       {
         "title": "Web3 starter workshop",

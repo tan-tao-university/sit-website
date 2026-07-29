@@ -235,37 +235,54 @@ export default function ProgramDetailPageContent({ locale }: { locale: SiteLocal
     program.banner ||
     programImage(program) ||
     slugLevelContent.hero.fallbackImage;
+  const hideBreadcrumb =
+    locale === "vi" && params?.program === "cu-nhan-khoa-hoc-du-lieu";
 
   return (
     <main className="overflow-hidden bg-white text-[#171b25]">
       <section className="border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto max-w-7xl px-5 pb-12 pt-7 sm:px-8 lg:pb-16">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]">
-            <Link href={programsBasePath(locale)} className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]">
-              {t("title")}
-            </Link>
-            <span aria-hidden className="text-[#BA4811]">/</span>
-            <Link
-              href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
-              className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+        <div
+          className={`mx-auto max-w-7xl px-5 pb-12 sm:px-8 lg:pb-16 ${
+            hideBreadcrumb ? "pt-12 sm:pt-16" : "pt-7"
+          }`}
+        >
+          {!hideBreadcrumb && (
+            <nav
+              aria-label="Breadcrumb"
+              className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]"
             >
-              {levelLabel}
-            </Link>
-            <span aria-hidden className="text-[#BA4811]">/</span>
-            <span className="max-w-[26rem] truncate text-[#4f544f]">{title}</span>
-          </nav>
+              <Link
+                href={programsBasePath(locale)}
+                className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+              >
+                {t("title")}
+              </Link>
+              <span aria-hidden className="text-[#BA4811]">/</span>
+              <Link
+                href={`${programsBasePath(locale)}/${programLevelPath(locale, levelKey)}`}
+                className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+              >
+                {levelLabel}
+              </Link>
+              <span aria-hidden className="text-[#BA4811]">/</span>
+              <span className="max-w-[26rem] truncate text-[#4f544f]">
+                {title}
+              </span>
+            </nav>
+          )}
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16"
+            className={`${hideBreadcrumb ? "" : "mt-12"} grid gap-12 lg:grid-cols-[minmax(0,1fr)_21rem] lg:gap-16`}
           >
             <div>
               <div className="flex items-center gap-4 font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
                 <span className="h-px w-12 bg-current" />
-                {copy.dossier} · {program.majorCode || program.code}
+                {copy.dossier}
+                {!hideBreadcrumb && ` · ${program.majorCode || program.code}`}
               </div>
               <h1 className="mt-7 max-w-[17ch] text-[2.75rem] font-bold leading-[1.08] tracking-[-0.032em] text-balance text-[#171b25] sm:text-[3.4rem] lg:text-[4rem]">
                 {title}

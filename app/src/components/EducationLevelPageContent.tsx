@@ -9,7 +9,7 @@ import { useParams } from "next/navigation";
 import { useTranslations } from "next-intl";
 import CtaBanner from "@/components/CtaBanner";
 import SectionTab from "@/components/SectionTab";
-import { api, type Program } from "@/lib/api";
+import { api, type Curriculum, type Program } from "@/lib/api";
 import {
   apiProgramLevel,
   localizedProgramText,
@@ -71,12 +71,31 @@ type DetailsTranslations = {
   graduate: LevelDetails;
 };
 
+const formatRange = (
+  values: Array<number | undefined>,
+  unit: string,
+  fallback: string,
+) => {
+  const numbers = [...new Set(values.filter((value): value is number => typeof value === "number"))].sort(
+    (a, b) => a - b,
+  );
+  if (numbers.length === 0) return fallback;
+
+  const range =
+    numbers.length === 1
+      ? String(numbers[0])
+      : `${numbers[0]}–${numbers[numbers.length - 1]}`;
+  return `${range} ${unit}`;
+};
+
 export default function EducationLevelPageContent({ locale }: { locale: SiteLocale }) {
   const params = useParams<{ "education-level": string }>();
   const levelKey = normalizeProgramLevel(params?.["education-level"]);
+  const hideBreadcrumb = locale === "vi" && levelKey === "undergraduate";
   const t = useTranslations("programs");
   const reduceMotion = useReducedMotion();
   const [apiPrograms, setApiPrograms] = useState<Program[]>([]);
+  const [apiCurriculums, setApiCurriculums] = useState<Curriculum[]>([]);
 
   const programsData = t.raw("programs") as ProgramsData;
   const details = t.raw("details") as DetailsTranslations;
@@ -90,13 +109,21 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
   useEffect(() => {
     let active = true;
 
-    api.programs
-      .findAll({ level: apiProgramLevel(levelKey), status: "active" })
-      .then((data) => {
-        if (active) setApiPrograms(data);
+    Promise.all([
+      api.programs.findAll({
+        level: apiProgramLevel(levelKey),
+        status: "active",
+      }),
+      api.curriculums.findAll(),
+    ])
+      .then(([programs, curriculums]) => {
+        if (active) {
+          setApiPrograms(programs);
+          setApiCurriculums(curriculums);
+        }
       })
       .catch((error) => {
-        console.error("Failed to fetch education-level programs:", error);
+        console.error("Failed to fetch education-level data:", error);
       });
 
     return () => {
@@ -118,6 +145,18 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
           programIntro: "Mỗi ngành là một hướng tiếp cận khác nhau, cùng chia sẻ nền tảng công nghệ và tư duy giải quyết vấn đề.",
           discover: "Khám phá chương trình",
           admissionCycle: "Tuyển sinh 2026",
+          programCount: "Chương trình đào tạo",
+          activePrograms: "Đang hoạt động",
+          duration: "Thời lượng",
+          workload: "Khối lượng",
+          educationType: "Hình thức học",
+          programUnit: "chương trình",
+          programUnits: "chương trình",
+          years: "năm",
+          semesters: "học kỳ",
+          credits: "tín chỉ",
+          currentCurriculum: "Theo chương trình hiện hành",
+          updating: "Đang cập nhật",
         }
       : {
           chapter: "Learning journey",
@@ -126,29 +165,96 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
           programIntro: "Each program offers a distinct direction while sharing a foundation in technology and problem solving.",
           discover: "Discover the program",
           admissionCycle: "Admissions 2026",
+          programCount: "Academic programs",
+          activePrograms: "Currently active",
+          duration: "Duration",
+          workload: "Workload",
+          educationType: "Study format",
+          programUnit: "program",
+          programUnits: "programs",
+          years: "years",
+          semesters: "semesters",
+          credits: "credits",
+          currentCurriculum: "Based on current curricula",
+          updating: "Updating",
         };
+  const programIds = new Set(apiPrograms.map((program) => program.programId));
+  const currentCurriculums = apiCurriculums.filter(
+    (curriculum) => curriculum.isCurrent && programIds.has(curriculum.programId),
+  );
+  const educationTypes = [
+    ...new Set(currentCurriculums.map((curriculum) => curriculum.educationType).filter(Boolean)),
+  ];
+  const languages = [
+    ...new Set(currentCurriculums.map((curriculum) => curriculum.language).filter(Boolean)),
+  ];
+  const liveKeyDetails = [
+    {
+      label: copy.programCount,
+      value: `${apiPrograms.length} ${
+        apiPrograms.length === 1 ? copy.programUnit : copy.programUnits
+      }`,
+      description: copy.activePrograms,
+    },
+    {
+      label: copy.duration,
+      value: formatRange(
+        currentCurriculums.map((curriculum) => curriculum.durationYears),
+        copy.years,
+        copy.updating,
+      ),
+      description: formatRange(
+        currentCurriculums.map((curriculum) => curriculum.totalSemesters),
+        copy.semesters,
+        copy.currentCurriculum,
+      ),
+    },
+    {
+      label: copy.workload,
+      value: formatRange(
+        currentCurriculums.map((curriculum) => curriculum.totalCredits),
+        copy.credits,
+        copy.updating,
+      ),
+      description: copy.currentCurriculum,
+    },
+    {
+      label: copy.educationType,
+      value: educationTypes.join(" · ") || copy.updating,
+      description: languages.join(" · ") || copy.currentCurriculum,
+    },
+  ];
 
   return (
     <main className="overflow-hidden bg-white text-[#171b25]">
       <section className="relative border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto max-w-7xl px-5 pb-10 pt-7 sm:px-8 sm:pb-12">
-          <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]">
-            <Link
-              href={programsBasePath(locale)}
-              className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+        <div
+          className={`mx-auto max-w-7xl px-5 pb-10 sm:px-8 sm:pb-12 ${
+            hideBreadcrumb ? "pt-12 sm:pt-16" : "pt-7"
+          }`}
+        >
+          {!hideBreadcrumb && (
+            <nav
+              aria-label="Breadcrumb"
+              className="flex flex-wrap items-center gap-2 font-mono text-[0.6rem] uppercase tracking-[0.14em] text-[#8a8d88]"
             >
-              {levelDetails.hero.breadcrumbs[1] || t("title")}
-            </Link>
-            <span aria-hidden className="text-[#BA4811]">/</span>
-            <span className="text-[#4f544f]">{levelLabel}</span>
-          </nav>
+              <Link
+                href={programsBasePath(locale)}
+                className="transition-colors hover:text-[#BA4811] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#BA4811]"
+              >
+                {levelDetails.hero.breadcrumbs[1] || t("title")}
+              </Link>
+              <span aria-hidden className="text-[#BA4811]">/</span>
+              <span className="text-[#4f544f]">{levelLabel}</span>
+            </nav>
+          )}
 
           <motion.div
             initial="hidden"
             animate="visible"
             variants={reveal}
             transition={{ duration: 0.75, ease: [0.16, 1, 0.3, 1] }}
-            className="mt-12 grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end"
+            className={`${hideBreadcrumb ? "" : "mt-12"} grid gap-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:items-end`}
           >
             <div>
               <p className="font-mono text-[0.64rem] font-semibold uppercase tracking-[0.2em] text-[#BA4811]">
@@ -196,20 +302,28 @@ export default function EducationLevelPageContent({ locale }: { locale: SiteLoca
         </div>
       </section>
 
-      <section className="border-b border-[#171b25]/15 bg-white">
-        <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
-          {levelDetails.keyDetails.map((detail, index) => (
-            <div
-              key={detail.label}
-              className={`min-h-36 px-5 py-6 sm:px-7 lg:px-8 ${index % 2 ? "border-l border-[#171b25]/15" : ""} ${index > 1 ? "border-t border-[#171b25]/15 lg:border-t-0" : ""} ${index > 0 ? "lg:border-l lg:border-[#171b25]/15" : ""}`}
-            >
-              <p className="font-mono text-[0.58rem] uppercase tracking-[0.15em] text-[#8a8d88]">{detail.label}</p>
-              <p className="mt-3 text-xl font-bold tracking-[-0.035em] sm:text-2xl">{detail.value}</p>
-              {detail.description && <p className="mt-2 text-[0.68rem] leading-5 text-[#70716c]">{detail.description}</p>}
-            </div>
-          ))}
-        </div>
-      </section>
+      {apiPrograms.length > 0 && (
+        <section className="border-b border-[#171b25]/15 bg-white">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 lg:grid-cols-4">
+            {liveKeyDetails.map((detail, index) => (
+              <div
+                key={detail.label}
+                className={`min-h-36 px-5 py-6 sm:px-7 lg:px-8 ${index % 2 ? "border-l border-[#171b25]/15" : ""} ${index > 1 ? "border-t border-[#171b25]/15 lg:border-t-0" : ""} ${index > 0 ? "lg:border-l lg:border-[#171b25]/15" : ""}`}
+              >
+                <p className="font-mono text-[0.58rem] uppercase tracking-[0.15em] text-[#8a8d88]">
+                  {detail.label}
+                </p>
+                <p className="mt-3 text-xl font-bold tracking-[-0.035em] sm:text-2xl">
+                  {detail.value}
+                </p>
+                <p className="mt-2 text-[0.68rem] leading-5 text-[#70716c]">
+                  {detail.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
         <SectionTab label={copy.chapter} />

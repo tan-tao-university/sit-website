@@ -30,9 +30,12 @@ pnpm install --frozen-lockfile
 pnpm build   # build cả backend + app + dashboard (root package.json)
 
 # startOrReload: lần đầu -> start, các lần sau -> reload. Skip nếu máy test chưa cài pm2.
+# ponytail: server dùng chung 1 pm2 daemon với nhiều app khác -> lọc bảng, chỉ in sit-*
+# ({ grep || true; } để grep không match cũng không làm fail pipeline vì pipefail)
 if command -v pm2 >/dev/null 2>&1; then
-  pm2 startOrReload ecosystem.config.js --update-env
+  pm2 startOrReload ecosystem.config.js --update-env | { grep -vE '^[┌│├└]' || true; }
   pm2 save
+  pm2 list --no-color | { grep -E '│ name|sit-' || true; }
 else
   echo "==> (bỏ qua pm2 — chưa cài, ok khi test build local)"
 fi
