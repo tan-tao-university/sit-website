@@ -98,11 +98,13 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
   const copy =
     locale === "vi"
       ? {
-          directory: "Danh mục học thuật / 2026",
+          directory: "Khoa Công nghệ Thông tin",
           intro: "Tìm ngành học theo bậc đào tạo, định hướng và con đường bạn muốn theo đuổi.",
           explore: "Khám phá danh mục",
           admissions: "Tuyển sinh",
           filter: "Bộ lọc chương trình",
+          overview: "Tổng quan đào tạo",
+          available: "Chương trình hiện có",
           results: "chương trình",
           all: "Tất cả",
           empty: "Chưa có chương trình phù hợp với bộ lọc này.",
@@ -112,11 +114,13 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
           compare: "Chọn một bậc học để xem lộ trình, thời lượng và các ngành tương ứng.",
         }
       : {
-          directory: "Academic directory / 2026",
+          directory: "School of Information Technology",
           intro: "Find a field of study by degree level, direction and the path you want to pursue.",
           explore: "Explore the directory",
           admissions: "Admissions",
           filter: "Program filters",
+          overview: "Program overview",
+          available: "Available programs",
           results: "programs",
           all: "All programs",
           empty: "No programs match this filter yet.",
@@ -205,32 +209,67 @@ export default function ProgramsPageContent({ locale }: { locale: SiteLocale }) 
               <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,27,37,.18)_0%,rgba(17,27,37,.28)_42%,rgba(17,27,37,.88)_100%)]" />
               <div className="absolute inset-4 flex flex-col justify-end border border-white/65 p-4 text-white">
                 <div>
-                  <span className="text-4xl font-bold tracking-[-0.06em]">{String(programs.length).padStart(2, "0")}</span>
-                  <p className="mt-2 max-w-[15rem] text-xs font-medium leading-5 text-white">{t("programsSubtitle")}</p>
+                  <p className="max-w-[15rem] text-xs font-medium leading-5 text-white">{t("programsSubtitle")}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="border-t border-[#171b25]/15 bg-white">
-          <div className="mx-auto grid max-w-7xl grid-cols-3">
-            {[
-              [programs.length, copy.all],
-              [groupedCounts.undergraduate, t("undergraduate")],
-              [groupedCounts.graduate, t("graduate")],
-            ].map(([value, label], index) => (
-              <div
-                key={String(label)}
-                className={`px-4 py-5 sm:px-8 ${index > 0 ? "border-l border-[#171b25]/15" : ""}`}
-              >
-                <span className="font-mono text-[0.62rem] text-[#BA4811]">0{index + 1}</span>
-                <p className="mt-2 text-sm font-semibold sm:text-base">
-                  <span className="mr-2 text-xl font-bold tracking-[-0.04em] sm:text-2xl">{value}</span>
-                  <span className="text-[#70736f]">{label}</span>
+        <div className="border-t border-[#171b25]/10 bg-white">
+          <div className="mx-auto max-w-7xl px-5 py-8 sm:px-8 sm:py-10">
+            <div className="grid border border-[#171b25]/20 md:grid-cols-[0.9fr_1.1fr]">
+              <div className="relative flex min-h-48 items-end justify-between gap-6 bg-[#BA4811] p-6 text-white sm:p-8">
+                <span
+                  aria-hidden="true"
+                  className="absolute right-0 top-0 h-3 w-20 bg-white/70"
+                />
+                <div>
+                  <p className="flex items-center gap-3 text-[0.65rem] font-semibold uppercase tracking-[0.15em] text-white/75">
+                    <span
+                      aria-hidden="true"
+                      className="h-px w-8 bg-white/60"
+                    />
+                    {copy.overview}
+                  </p>
+                  <p className="mt-8 text-6xl font-bold leading-none tracking-[-0.065em] tabular-nums sm:text-7xl">
+                    {programs.length}
+                  </p>
+                </div>
+                <p className="max-w-[9rem] pb-1 text-sm font-medium leading-5 text-white/85">
+                  {copy.available}
                 </p>
               </div>
-            ))}
+
+              <dl className="grid grid-cols-2 divide-x divide-[#171b25]/15 bg-[#f7f4f1]">
+                {[
+                  {
+                    value: groupedCounts.undergraduate,
+                    label: t("undergraduate"),
+                  },
+                  {
+                    value: groupedCounts.graduate,
+                    label: t("graduate"),
+                  },
+                ].map(({ value, label }) => (
+                  <div
+                    key={label}
+                    className="flex min-h-48 flex-col justify-between p-6 sm:p-8"
+                  >
+                    <dt className="flex items-center gap-3 text-[0.68rem] font-semibold uppercase tracking-[0.12em] text-[#70736f]">
+                      <span
+                        aria-hidden="true"
+                        className="h-px w-8 bg-[#BA4811]"
+                      />
+                      {label}
+                    </dt>
+                    <dd className="mt-8 text-5xl font-bold leading-none tracking-[-0.055em] text-[#171b25] tabular-nums sm:text-6xl">
+                      {value}
+                    </dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </div>
         </div>
       </section>
