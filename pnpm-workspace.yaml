@@ -3,10 +3,14 @@ packages:
   - backend
   - dashboard
 
+ignoredBuiltDependencies:
+  - '@tailwindcss/oxide'
+
 onlyBuiltDependencies:
+  - '@parcel/watcher'
+  - '@scarf/scarf'
+  - '@swc/core'
+  - esbuild
   - msw
   - sharp
   - unrs-resolver
-
-ignoredBuiltDependencies:
-  - '@tailwindcss/oxide'

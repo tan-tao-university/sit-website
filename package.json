@@ -10,6 +10,9 @@
     "build:app": "pnpm --filter frontend run build",
     "build:dashboard": "pnpm --filter dashboard run build",
     "start": "pnpm -r --parallel --filter backend --filter frontend --filter dashboard run start",
+    "pm2:start": "pm2 startOrReload ecosystem.config.js --update-env",
+    "pm2:restart": "pm2 restart ecosystem.config.js --update-env",
+    "pm2:redeploy": "pnpm build && pm2 startOrReload ecosystem.config.js --update-env",
     "start:backend": "pnpm --filter backend run start",
     "start:app": "pnpm --filter frontend run start",
     "start:dashboard": "pnpm --filter dashboard run start"

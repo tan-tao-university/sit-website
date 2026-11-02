@@ -84,6 +84,8 @@ Always review `uploads:gc` dry-run output before passing `--apply`. Configure `U
 
 ## Deployment
 
+After installing dependencies and building all workspaces, use `pnpm pm2:start` to start or reload the three services, `pnpm pm2:restart` to restart them, or `pnpm pm2:redeploy` to rebuild and reload them. These commands use `ecosystem.config.js` and do not fetch, reset, or update the Git checkout. PM2 must be installed and ports 3000, 4000, and 8080 must be available.
+
 Pushes to the `prod` branch trigger `.github/workflows/deploy.yml`, which runs `deploy.sh` on a self-hosted runner: fetch, `pnpm install --frozen-lockfile`, `pnpm build`, then `pm2 startOrReload` via `ecosystem.config.js`.
 
 ## Contributing
