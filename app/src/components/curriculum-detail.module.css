@@ -1,0 +1,59 @@
+.content table {
+  width: 100%;
+  margin: 1.5rem 0;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.content th,
+.content td {
+  min-width: 3.5rem;
+  padding: 0.75rem !important;
+  border: 1px solid #000;
+  vertical-align: middle;
+}
+
+.content th {
+  text-align: center;
+}
+
+.content table p {
+  margin: 0;
+  line-height: 1.5;
+}
+
+.content table p + p {
+  margin-top: 0.5rem;
+}
+
+.content th p:has(> br:only-child) {
+  display: none;
+}
+
+.content :global(.ql-align-center) {
+  text-align: center;
+}
+
+.content :global(.ql-align-right) {
+  text-align: right;
+}
+
+.content :global(.ql-align-justify) {
+  text-align: left;
+}
+
+.content table:has(th[colspan="3"]) tr:first-child th:nth-child(2),
+.content table:has(th[colspan="4"]) tr:first-child th:nth-child(3) {
+  text-align: left;
+}
+
+/* The grouped credit headers identify the numerical columns in these tables. */
+.content table:has(th[colspan="3"]) tr:has(> td:nth-child(4)) > td:nth-last-child(-n + 3),
+.content table:has(th[colspan="4"]) tr:has(> td:nth-child(5)) > td:nth-last-child(-n + 4),
+.content table:has(th[colspan="3"]) tr > td:first-child[rowspan]:not([rowspan="1"]),
+.content table:has(th[colspan="3"]) tr:has(> td:nth-child(5)) > td:first-child,
+.content table:has(th[colspan="4"]) tr:has(> td:nth-child(7)) > td:nth-child(-n + 2) {
+  text-align: center;
+  white-space: nowrap;
+}

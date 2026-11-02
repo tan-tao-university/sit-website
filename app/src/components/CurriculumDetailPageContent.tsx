@@ -18,6 +18,7 @@ import {
 import { getLevelDisplay } from "@/utils/common";
 
 import { ArrowIcon } from "@/components/icons/ArrowIcon";
+import styles from "./curriculum-detail.module.css";
 
 const CurriculumDetailLoading = () => (
   <main className="min-h-screen animate-pulse bg-white">
@@ -314,7 +315,7 @@ export default function CurriculumDetailPageContent({
         </div>
       </section>
 
-      <section className="relative bg-[#f7f4f1] py-16 sm:py-20 lg:py-24">
+      <section className="relative bg-white py-16 sm:py-20 lg:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[13rem_minmax(0,1fr)] lg:gap-16">
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <p className="font-mono text-[0.62rem] font-semibold uppercase tracking-[0.17em] text-[#BA4811]">
@@ -402,7 +403,7 @@ export default function CurriculumDetailPageContent({
                       >
                         <div className="overflow-hidden">
                           <div
-                            className="prose prose-slate max-w-none pb-10 pl-[4.25rem] text-base leading-8 text-[#555a55] sm:pl-[5rem] sm:text-[1.05rem] [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-[-0.025em] [&_h2]:text-[#171b25] [&_h3]:mt-7 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#171b25] [&_li]:my-2 [&_p]:leading-8 [&_table]:my-8 [&_table]:block [&_table]:w-full [&_table]:overflow-x-auto [&_td]:min-w-32 [&_td]:border-[#d4cec8] [&_td]:px-4 [&_td]:py-3 [&_td]:text-base [&_th]:min-w-32 [&_th]:border-[#d4cec8] [&_th]:bg-white [&_th]:px-4 [&_th]:py-3 [&_th]:text-left [&_th]:text-sm"
+                            className={`${styles.content} prose prose-slate max-w-none overflow-x-auto pb-10 pl-[4.25rem] text-base leading-8 text-[#555a55] sm:pl-[5rem] sm:text-[1.05rem] [&_h2]:mt-8 [&_h2]:text-2xl [&_h2]:font-bold [&_h2]:tracking-[-0.025em] [&_h2]:text-[#171b25] [&_h3]:mt-7 [&_h3]:text-xl [&_h3]:font-bold [&_h3]:text-[#171b25] [&_li]:my-2 [&_p]:leading-8`}
                             dangerouslySetInnerHTML={{
                               __html: (section.content || "").replace(
                                 /&nbsp;/g,
