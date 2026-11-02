@@ -45,6 +45,10 @@ pnpm start    # start the production build
 
 Locales are `vi` (default) and `en`, routed by `middleware.ts` (`/`, `/en/...`); Vietnamese stays the default regardless of browser language, English is only reached through an explicit `/en` path. Translation strings live in `src/messages/vi.json` and `src/messages/en.json`.
 
+## Curriculum tables
+
+Curriculum detail pages format imported tables for readability: descriptive columns are left-aligned, identifiers and credit values are centered, and wide tables scroll horizontally on small screens. Table styles are scoped to `src/components/curriculum-detail.module.css`.
+
 ## Images
 
 Remote images are allowed from the R2 bucket and from the local backend's `/uploads` path (see `next.config.ts`). Add any production backend host there before deploying against it.

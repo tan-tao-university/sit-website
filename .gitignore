@@ -124,3 +124,6 @@ coverage/
 # Misc
 *.tgz
 *.tar.gz
+.omp/
+.local/
+/backend/sit_db.dump
